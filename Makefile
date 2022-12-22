@@ -6,7 +6,7 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/17 17:15:03 by nhanafi           #+#    #+#              #
-#    Updated: 2022/12/17 17:22:17 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/12/22 01:46:51 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,11 @@ FILES = main
 
 GCC = gcc -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit
 
-NAME = fractol
+NAME = minirt
 
-INC = include/minirt.h
+INC = include
+
+HEADER = include/minirt.h
 
 ODIR = obj
 
@@ -27,9 +29,9 @@ all: $(NAME)
 $(NAME): $(OBJ) 
 	$(GCC) $(OBJ) -o $(NAME)
 
-$(ODIR)/%.o: src/%.c $(HEADERS)
-	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+$(ODIR)/%.o: src/%.c $(HEADER)
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
 bonus: all
 
