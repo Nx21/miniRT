@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 08:51:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/24 08:52:38 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/09/03 05:36:12 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/09/15 22:38:32 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "utils.h"
 
-int main(int argc, char const *argv[])
+void	*ft_calloc(int number, int size)
 {
-	if (argc != 2)
-		return 1;
-	
-	return 0;
+	int		i;
+	char	*c;
+
+	i = 0;
+	c = malloc(number * size);
+	while (i < number * size)
+	{
+		c[i] = 0;
+		i++;
+	}
+	return ((void *)c);
 }

@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 08:51:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/24 08:52:38 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/08/31 00:35:57 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/09/14 17:14:33 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "utils.h"
 
-int main(int argc, char const *argv[])
+void	*ft_memset(void *str, int c, size_t n)
 {
-	if (argc != 2)
-		return 1;
-	
-	return 0;
+	size_t	i;
+	char	*s;
+
+	s = str;
+	i = 0;
+	while (i < n)
+	{
+		s[i] = c;
+		i++;
+	}
+	return (str);
 }

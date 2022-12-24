@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 08:51:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/24 08:52:38 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/09/03 04:48:53 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/09/14 17:12:17 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include"utils.h"
 
-int main(int argc, char const *argv[])
+int	ft_isalnum(int str )
 {
-	if (argc != 2)
-		return 1;
-	
-	return 0;
+	if ((str >= 48 && str <= 57)
+		|| (str >= 65 && str <= 90)
+		|| (str >= 97 && str <= 122))
+	{
+		return (1);
+	}
+	else
+		return (0);
 }

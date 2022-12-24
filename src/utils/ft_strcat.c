@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 08:51:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/24 08:52:38 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/09/03 05:38:43 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/09/14 17:10:26 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "utils.h"
 
-int main(int argc, char const *argv[])
+char	*ft_strcat(char *dest, char *src)
 {
-	if (argc != 2)
-		return 1;
-	
-	return 0;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (dest[i] != 0)
+		i++;
+	while (src[j] != 0)
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[j + i] = 0;
+	return (dest);
 }

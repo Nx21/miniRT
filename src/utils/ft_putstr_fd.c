@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/24 08:51:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/24 08:52:38 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/08/26 02:29:53 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/09/14 17:15:40 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include <utils.h>
 
-int main(int argc, char const *argv[])
+int	ft_putstr_fd(char *s, int fd)
 {
-	if (argc != 2)
-		return 1;
-	
-	return 0;
+	int		i;
+
+	i = 0;
+	while (s && s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	return (i);
 }
