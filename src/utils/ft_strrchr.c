@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/29 15:01:29 by orekabe           #+#    #+#             */
-/*   Updated: 2022/12/26 00:51:56 by nhanafi          ###   ########.fr       */
+/*   Created: 2021/11/08 12:59:11 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/12/26 00:52:21 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "utils.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "utils.h"
+char	*ft_strrchr(char *str, int c)
+{
+	int	len;
 
-#define BUFFER_SIZE 42
-char	*get_next_line(int fd);
-char	*ft_read(char *str, int fd);
-char	*ft_strjoin(char *s1, char *s2);
-#endif
+	if (!c)
+		return ((char *)str + ft_strlen(str));
+	len = ft_strlen(str);
+	while (len >= 0)
+	{
+		if ((int)str[len] == c)
+			return ((char *)str + len);
+		len--;
+	}
+	return (NULL);
+}

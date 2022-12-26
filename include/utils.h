@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/24 21:44:29 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/12/26 02:50:57 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 # define UTILS_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <math.h>
+
+typedef	struct s_coordinates
+{
+	double	x;
+	double	y;
+	double	z;
+}	t_coordinates;
 
 int				ft_strlen(char *str);
 char			*ft_join(char *s1, char *s2);
@@ -33,4 +41,16 @@ int				ft_isalnum( int str );
 void			*ft_calloc(int number, int size);
 char			*ft_strcat(char *dest, char *src);
 int				ft_get_first_ind(char *str, char *to_find);
+int				end_with(char *src, char *to_find);
+int				start_with(char *src, char *to_find);
+char			*ft_strtrim(char *s1, char *set);
+int             check_negative(char *str, int *i);
+double          ft_atof(char *str);
+char            *ft_strchr(char *str, int c);
+char            *ft_strrchr(char *str, int c);
+size_t			ft_count(char *str, int c);
+int				ft_listlen(char **list);
+void			free_list(char **list);
+t_coordinates	ft_atoc(char *str);
+int				ft_atocolor(char *str);
 #endif

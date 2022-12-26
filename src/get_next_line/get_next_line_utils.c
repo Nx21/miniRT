@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 15:38:54 by orekabe           #+#    #+#             */
-/*   Updated: 2021/12/30 16:53:55 by orekabe          ###   ########.fr       */
+/*   Updated: 2022/12/26 00:51:49 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -47,24 +37,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	ptr[i] = '\0';
 	free (s1);
 	return (ptr);
-}
-
-char	*ft_strchr(char *s, int c)
-{
-	int		i;
-
-	if (!s)
-		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return (s + i);
-		i++;
-	}
-	if (c == 0)
-		return (s + i);
-	return (NULL);
 }
 
 char	*ft_read(char *str, int fd)

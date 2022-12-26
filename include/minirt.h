@@ -6,15 +6,18 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:17:34 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/24 09:16:47 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/12/26 02:51:05 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include <stdio.h>
-# include <stdlib.h>
+#include<stdio.h>
+#include<fcntl.h>
+#include<errno.h>
+# include "get_next_line.h"
+# include "utils.h"
 # include "mlx.h"
 
 
@@ -26,13 +29,6 @@ typedef struct	s_data
 	int		line_length;
 	int		endian;
 }				t_data;
-
-typedef	struct s_coordinates
-{
-	double	x;
-	double	y;
-	double	z;
-}	t_coordinates;
 
 typedef struct s_obj
 {

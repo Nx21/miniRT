@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_atocolor.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/29 15:01:29 by orekabe           #+#    #+#             */
-/*   Updated: 2022/12/26 00:51:56 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/12/26 02:41:46 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/12/26 02:51:37 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "utils.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "utils.h"
+int	ft_atocolor(char *str)
+{
+	int	res;
+	t_coordinates tmp;
 
-#define BUFFER_SIZE 42
-char	*get_next_line(int fd);
-char	*ft_read(char *str, int fd);
-char	*ft_strjoin(char *s1, char *s2);
-#endif
+	tmp = ft_atoc(str);
+	res = (((int)tmp.x & 0xff) << 16) + (((int)tmp.y & 0xff) << 8) + ((int)tmp.z & 0xff); 
+	return (res);
+}

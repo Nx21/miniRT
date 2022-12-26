@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_atoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/29 15:01:29 by orekabe           #+#    #+#             */
-/*   Updated: 2022/12/26 00:51:56 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/12/26 02:28:55 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/12/26 04:18:31 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "utils.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "utils.h"
+t_coordinates	ft_atoc(char *str)
+{
+	t_coordinates	res;
+	char			**list;
 
-#define BUFFER_SIZE 42
-char	*get_next_line(int fd);
-char	*ft_read(char *str, int fd);
-char	*ft_strjoin(char *s1, char *s2);
-#endif
+	list = ft_split(str, ',');
+	if (ft_listlen(list) != 3 && ft_count(str, '.') != 3)
+		exit(1);
+	res.x = ft_atof(list[0]);
+	res.y = ft_atof(list[1]);
+	res.z = ft_atof(list[2]);
+	free_list(list);
+	return	(res);
+}

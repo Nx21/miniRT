@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_count.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/29 15:01:29 by orekabe           #+#    #+#             */
-/*   Updated: 2022/12/26 00:51:56 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/12/26 02:24:53 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/12/26 02:27:31 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "utils.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "utils.h"
+size_t ft_count(char *str, int c)
+{
+	int		i;
+	size_t	count;
 
-#define BUFFER_SIZE 42
-char	*get_next_line(int fd);
-char	*ft_read(char *str, int fd);
-char	*ft_strjoin(char *s1, char *s2);
-#endif
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			count++;
+		i++;
+	}
+	return (count);
+}

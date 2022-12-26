@@ -1,24 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   end_with.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/29 15:01:29 by orekabe           #+#    #+#             */
-/*   Updated: 2022/12/26 00:51:56 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/12/25 02:08:40 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/12/25 02:13:51 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "utils.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "utils.h"
+int end_with(char *src, char *to_find)
+{
+	int	i;
+	int	j;
 
-#define BUFFER_SIZE 42
-char	*get_next_line(int fd);
-char	*ft_read(char *str, int fd);
-char	*ft_strjoin(char *s1, char *s2);
-#endif
+	i = ft_strlen(src) - 1;
+	j = ft_strlen(to_find) - 1;
+	while (j >= 0)
+	{
+		if(i < 0 || src[i] != to_find[j])
+			return (0);
+		i--;
+		j--;
+	}
+	return (1);
+}
+
+int start_with(char *src, char *to_find)
+{
+	int	i;
+
+	i = 0;
+	while(to_find[i])
+	{
+		if(src[i] != to_find[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}

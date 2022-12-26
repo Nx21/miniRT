@@ -6,14 +6,15 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/17 17:15:03 by nhanafi           #+#    #+#              #
-#    Updated: 2022/12/24 21:49:30 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/12/26 02:46:41 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FILES = main utils/ft_atoi utils/ft_isalnum utils/ft_join utils/ft_putstr_fd utils/ft_strcat utils/ft_strdup\
 	utils/ft_strstr utils/instr utils/ft_calloc utils/ft_itoa utils/ft_memset utils/ft_split utils/ft_strcmp \
-	utils/ft_strlen utils/ft_substr\
-	get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+	utils/ft_strlen utils/ft_substr utils/end_with utils/ft_strtrim utils/ft_atof utils/ft_strchr utils/ft_strrchr\
+	utils/ft_atoc utils/ft_count utils/ft_listlen utils/ft_atocolor\
+	get_next_line/get_next_line get_next_line/get_next_line_utils
 	
 
 GCC = gcc -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit
@@ -40,7 +41,7 @@ $(ODIR)/%.o: src/%.c $(HEADER)
 bonus: all
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(ODIR) 
 	
 fclean: clean
 	rm -rf $(NAME)

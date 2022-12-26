@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_listlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/29 15:01:29 by orekabe           #+#    #+#             */
-/*   Updated: 2022/12/26 00:51:56 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/12/26 02:32:27 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/12/26 02:38:39 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+int ft_listlen(char **list)
+{
+	int len;
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "utils.h"
+	if(!list)
+		return 0;
+	len = 0;
+	while(list[len])
+		len++;
+	return len;
+}
 
-#define BUFFER_SIZE 42
-char	*get_next_line(int fd);
-char	*ft_read(char *str, int fd);
-char	*ft_strjoin(char *s1, char *s2);
-#endif
+void	free_list(char **list)
+{
+	int	i;
+
+	i = 0;
+	while(list[i])
+	{
+		free(list[i]);
+		i++;
+	}
+	free(list);
+}

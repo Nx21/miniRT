@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 04:11:13 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 17:03:15 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/12/26 00:24:18 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,19 @@ int	check_negative(char *str, int *i)
 	return (neg);
 }
 
+void	check_int(char *str)
+{
+	int i;
+
+	i = 0;
+	while(str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			exit(1);
+		i++;
+	}
+}
+
 unsigned int	ft_atoi(char *str)
 {
 	int	i;
@@ -40,12 +53,12 @@ unsigned int	ft_atoi(char *str)
 		return (0);
 	i = 0;
 	neg = check_negative(str, &i);
+	check_int(str + i);
 	a = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		a *= 10;
 		a += str[i] - 48;
-		a %= 256;
 		i++;
 	}
 	if (neg % 2)
