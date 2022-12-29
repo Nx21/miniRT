@@ -6,9 +6,11 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:32:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/26 02:38:39 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/12/27 04:58:13 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "utils.h"
 
 int ft_listlen(char **list)
 {

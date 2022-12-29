@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ambient.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 12:59:11 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/27 05:02:28 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/12/29 05:02:28 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/12/29 05:12:27 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "minirt.h"
 
-char	*ft_strrchr(char *str, int c)
+void	ambient_pars(char *line, t_scene *scene, int fd)
 {
-	int	len;
+	char **tmp;
 
-	if (!str)
-		return NULL;
-	if (!c)
-		return ((char *)str + ft_strlen(str));
-	len = ft_strlen(str);
-	while (len >= 0)
-	{
-		if ((int)str[len] == c)
-			return ((char *)str + len);
-		len--;
-	}
-	return (NULL);
+	tmp = ft_split(line, ' ');
+	if (scene->ambientcolor >= 0 || ft_listlen(tmp) != 3 || ft_strcmp(tmp[0], "A"))
+		exit(1);
+	scene->ratio = ft_atof(tmp[1]);
+	scene->ambientcolor = ft_atocolor(tmp[2]);
+	if (scene->ratio < 0 || scene->ratio > 1)
+		exit(1);
+	free(line);
+	free_list(tmp);
+	pars(scene, fd);
 }

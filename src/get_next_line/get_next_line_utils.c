@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 15:38:54 by orekabe           #+#    #+#             */
-/*   Updated: 2022/12/26 00:51:49 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/12/27 05:03:17 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ char	*ft_read(char *str, int fd)
 	int		rd;
 
 	rd = 1;
-	ptr = (char *)malloc(BUFFER_SIZE + 1);
+	ptr = (char *)malloc(1 + 1);
 	if (!ptr)
 		return (NULL);
 	while (!ft_strchr(str, '\n') && rd != 0)
 	{
-		rd = read(fd, ptr, BUFFER_SIZE);
+		rd = read(fd, ptr, 1);
 		if (rd == -1)
 		{
 			free (ptr);

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 15:01:29 by orekabe           #+#    #+#             */
-/*   Updated: 2022/12/26 00:51:56 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/12/27 05:00:34 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include "utils.h"
 
-#define BUFFER_SIZE 42
+#define BUFFER_SIZE 1
 char	*get_next_line(int fd);
 char	*ft_read(char *str, int fd);
 char	*ft_strjoin(char *s1, char *s2);
