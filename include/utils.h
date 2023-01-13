@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/26 02:50:57 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/04 10:59:33 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-
-typedef	struct s_coordinates
-{
-	double	x;
-	double	y;
-	double	z;
-}	t_coordinates;
+# include "structs.h"
 
 int				ft_strlen(char *str);
 char			*ft_join(char *s1, char *s2);
