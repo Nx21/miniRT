@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/13 18:58:49 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/14 14:57:38 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,6 @@ typedef	struct s_coordinates
 	double	z;
 }	t_coordinates;
 
-typedef struct	s_data
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
 
 typedef struct s_obj
 {
@@ -49,12 +41,11 @@ typedef struct s_scene
 {
 	int				ambientcolor;
 	double			ratio;
-	t_coordinates	cam[WIDTH][HEIGHT];
+	t_coordinates	**cam;
 	t_coordinates	cam_co;
 	t_coordinates	cam_vec_x;
 	t_coordinates	cam_vec_y;
 	t_coordinates	cam_vec_z;
-	double			fov;
 	double			fov;
 	t_coordinates	vvp;
 	t_coordinates	light_co;
@@ -63,12 +54,23 @@ typedef struct s_scene
 	t_obj			*obj;
 }	t_scene;
 
+typedef struct	s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	t_scene	scene;
+}				t_data;
+
 typedef struct s_mat
 {
 	size_t		raw;
 	size_t		col;
 	double		**l;
 } t_mat;
-
+double  dist_sqv(t_coordinates v);
+t_coordinates prod_c(double a, t_coordinates u);
 
 #endif
