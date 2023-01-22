@@ -6,15 +6,13 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/04 10:59:33 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/21 21:29:06 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
-# include <stdlib.h>
-# include <unistd.h>
-# include <math.h>
+
 # include "structs.h"
 
 int				ft_strlen(char *str);

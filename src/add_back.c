@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 04:40:49 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/27 05:28:45 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/19 14:04:04 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,9 @@ t_obj *add_back(t_obj *head, t_obj *obj)
 		obj->id = 0;
 		return obj;
 	}
-	tmp = head;
-	while(tmp->next)
-		tmp = tmp->next;
-	tmp->next = obj;
-	obj->id = tmp->id + 1;
-	return head;
+	obj->id = head->id + 1;
+	obj->next = head;
+	return obj;
 }
 
 t_obj	*new_obj(int type)

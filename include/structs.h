@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/14 14:57:38 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/21 21:29:10 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # define EPSILON 1e-6
 # define WIDTH 1080
 # define HEIGHT	720
+# include <stdlib.h>
+# include <unistd.h>
+# include <math.h>
 typedef	struct s_coordinates
 {
 	double	x;
@@ -52,6 +55,7 @@ typedef struct s_scene
 	double			light_b;
 	int				light_color;
 	t_obj			*obj;
+	t_obj 			*tab;
 }	t_scene;
 
 typedef struct	s_data
@@ -70,6 +74,13 @@ typedef struct s_mat
 	size_t		col;
 	double		**l;
 } t_mat;
+
+typedef struct s_resobj
+{
+	t_obj	*obj;
+	double	distance;
+} t_resobj;
+
 double  dist_sqv(t_coordinates v);
 t_coordinates prod_c(double a, t_coordinates u);
 
