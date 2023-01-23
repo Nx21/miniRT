@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 08:51:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/22 01:09:09 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/23 02:07:05 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,42 @@ t_resobj	*intersection_sphere(t_scene scene, int  i, int j, t_obj *obj)
 	return (resobj(obj, r1));
 }
 
+int check_height(t_coordinates x, t_coordinates v, double r, t_obj *obj)
+{
+	t_coordinates vec = sub_c(obj->coor, add_c(x, prod_c(r, v)));
+	double res = doty_prod_c(obj->vec, vec);
+	return (obj->height >= res && res >= 0);
+}
+
+
+t_resobj	*intersection_cylindre(t_scene scene, int  i, int j, t_obj *obj)
+{
+	t_coordinates x = scene.cam_co;
+	t_coordinates v = scene.cam[i][j];
+	double delta,r1,r2;
+
+	if(!obj || obj->type != 2)
+		return NULL;
+	x = sub_c(x, obj->coor);
+	double a = doty_prod_c(v,v) - pow(doty_prod_c(v,obj->vec), 2);
+	double b = 2 * (doty_prod_c(v, x) - doty_prod_c(v, obj->vec) * doty_prod_c(x, obj->vec));
+	double c = doty_prod_c(x, x) - pow(doty_prod_c(x,obj->vec), 2) - pow(obj->diameter, 2);
+	delta = pow(b, 2) - 4 * a * c;
+	if (delta < 0)
+		return (NULL);
+	r1 = (-b - sqrt(delta)) / (2 * a);
+	r2 = (-b + sqrt(delta)) / (2 * a);
+	if ((r1 < 0 || r1 > r2 || !check_height(scene.cam_co, v, r1, obj)) && r2 >= 0&& check_height(scene.cam_co, v, r2, obj))
+		return (resobj(obj, r2));
+	if (r1 < 0 || !check_height(scene.cam_co, v, r1, obj))
+		return NULL;
+	return (resobj(obj, r1));
+}
+
+
+
+
+
 t_resobj	*intersection_plan(t_scene scene, int  i, int j, t_obj *obj)
 {
 	t_coordinates x = scene.cam_co;
@@ -103,6 +139,8 @@ int	pixel_color(t_scene scene, int i, int j)
 			tmp = intersection_sphere(scene, i, j, obj);
 		else if (obj->type == 1)
 			tmp = intersection_plan(scene, i, j, obj);
+		else if (obj->type == 2)
+			tmp = intersection_cylindre(scene, i, j, obj);
 		else
 			tmp = NULL;
 		if (tmp && (!res || res->distance > tmp->distance))

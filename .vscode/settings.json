@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "iostream": "cpp",
-        "complex": "c"
+        "complex": "c",
+        "vector": "cpp"
     }
 }

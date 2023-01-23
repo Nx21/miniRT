@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:07:49 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/21 22:19:58 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/23 01:40:16 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ t_coordinates norm_c(t_coordinates v)
 {
 	double magnitude;
 
-	magnitude = sqrt(dist_sq(v,v));
+	magnitude = sqrt(doty_prod_c(v,v));
 	return prod_c(1/magnitude, v);	
 }

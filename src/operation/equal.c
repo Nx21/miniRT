@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 21:14:08 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/14 13:21:50 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/23 01:48:43 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,5 @@ int equalc(t_coordinates a, t_coordinates b)
 
 double  dist_sq(t_coordinates a, t_coordinates b)
 {
-    return pow(a.x + b.x, 2) + pow(a.y + b.y, 2) + pow(a.z + b.z, 2);
-}
-
-double  dist_sqv(t_coordinates v)
-{
-    return pow(v.x, 2) + pow(v.y, 2) + pow(v.z, 2);
+    return pow(a.x - b.x, 2) + pow(a.y - b.y, 2) + pow(a.z - b.z, 2);
 }
