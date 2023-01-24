@@ -2,6 +2,8 @@
     "files.associations": {
         "iostream": "cpp",
         "complex": "c",
-        "vector": "cpp"
+        "vector": "cpp",
+        "algorithm": "c",
+        "__locale": "c"
     }
 }

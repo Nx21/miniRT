@@ -3,89 +3,98 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 02:08:04 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/16 02:22:23 by rjaanit          ###   ########.fr       */
+/*   Created: 2021/11/11 01:18:48 by orekabe           #+#    #+#             */
+/*   Updated: 2023/01/23 19:53:08 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-static int	check1(char *str, char c)
+static	char	**free_split(char **ptr)
 {
-	int	i;
-	int	count;
-	int	j;
+	free (ptr);
+	ptr = NULL;
+	return (ptr);
+}
 
-	j = 0;
+static	size_t	ft_count_strings(char const *s, char c)
+{
+	size_t	i;
+	size_t	k;
+
 	i = 0;
-	count = 0;
-	while (str[i] != '\0')
+	k = 0;
+	while (s[i])
 	{
-		if (str[i] != c && j == 0)
-		{
-			count++;
-			j = 1;
-		}
-		if (str[i] == c && j == 1)
-			j = 0;
+		if ((s[i] == c && s[i + 1] != c) && i != 0 && s[i + 1] != '\0')
+			k++;
 		i++;
 	}
-	return (count);
+	return (k + 2);
 }
 
-static int	check2(char *str, char c)
+static	char	*ft_allocate(char *s, char c)
 {
-	int	count;
+	size_t	i;
+	size_t	j;
+	char	*ptr;
 
-	count = 0;
-	if (*str == c)
-		str++;
-	while (*str != c && *str != '\0')
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	ptr = malloc(i + 1);
+	if (!ptr)
 	{
-		count++;
-		str++;
+		free (ptr);
+		ptr = NULL;
+		return (ptr);
 	}
-	return (count);
+	j = 0;
+	while (j < i)
+	{
+		ptr[j] = s[j];
+		j++;
+	}
+	ptr[j] = '\0';
+	return (ptr);
 }
 
-char	*ft_free(int i, char **s)
+static	char	**ft_split_beta(char *s, char c)
 {
-	while (i >= 0)
+	int		i;
+	int		j;
+	int		boool;
+	char	**ptr;
+
+	i = -1;
+	j = 0;
+	boool = 1;
+	ptr = (char **)malloc(ft_count_strings(s, c) * sizeof(char *));
+	if (!ptr)
+		return (free_split(ptr));
+	while (s[++i])
 	{
-		free(s[i]);
-		i--;
+		if (s[i] != c)
+		{
+			if (boool)
+				ptr[j++] = ft_allocate(s + i, c);
+			boool = 0;
+		}
+		else
+			boool = 1;
 	}
-	free(s);
-	return (NULL);
+	ptr[j] = NULL;
+	return (ptr);
 }
 
 char	**ft_split(char *s, char c)
 {
-	int		i;
-	int		j;
 	char	**ptr;
-	int		len;
 
-	i = 0;
 	if (!s)
 		return (NULL);
-	len = check1(s, c);
-	ptr = (char **)malloc(sizeof(char *) * (check1(s, c) + 1));
-	if (!ptr)
-		return (NULL);
-	while (i < len)
-	{
-		while (*s == c && *s)
-			s++;
-		j = check2(s, c);
-		ptr[i] = ft_substr(s, 0, j);
-		if (!ptr)
-			ft_free(i, ptr);
-		s = s + j;
-		i++;
-	}
-	ptr[i] = NULL;
+	ptr = ft_split_beta(s, c);
 	return (ptr);
 }

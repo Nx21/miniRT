@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/21 21:29:06 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/23 22:36:12 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void			*ft_memset(void *str, int c, size_t n);
 char			*ft_strstr(char *str, char *ch1);
 int				ft_isalnum( int str );
 void			*ft_calloc(int number, int size);
-char			*ft_strcat(char *dest, char *src);
 int				ft_get_first_ind(char *str, char *to_find);
 int				end_with(char *src, char *to_find);
 int				start_with(char *src, char *to_find);
@@ -45,4 +44,5 @@ int				ft_listlen(char **list);
 void			free_list(char **list);
 t_coordinates	ft_atoc(char *str);
 int				ft_atocolor(char *str);
+void        	ft_fswap(double *a, double *b);
 #endif

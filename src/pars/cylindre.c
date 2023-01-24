@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:04:42 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/23 01:28:06 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/24 03:08:43 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	cylinder_pars(char *line, t_scene *scene, int fd)
 		exit(1);
 	obj = new_obj(2);
 	obj->coor = ft_atoc(tmp[1]);
-	obj->vec = ft_atoc(tmp[2]);
+	obj->vec = norm_c(ft_atoc(tmp[2]));
 	obj->diameter = ft_atof(tmp[3]);
 	obj->height = ft_atof(tmp[4]);
 	obj->color = ft_atocolor(tmp[5]);

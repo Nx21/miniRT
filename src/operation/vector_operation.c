@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.c                                           :+:      :+:    :+:   */
+/*   vector_operation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:06:30 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/15 15:07:08 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/24 05:31:23 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ t_coordinates cross_prod_c(t_coordinates v, t_coordinates u)
 	res.x = v.y * u.z - v.z * u.y;
 	res.y = v.z * u.x - v.x * u.z;
 	res.z = v.x * u.y - v.y * u.x;
-
 	return res;
 }
 
-double doty_prod_c(t_coordinates v, t_coordinates u)
+double dot_prod_c(t_coordinates v, t_coordinates u)
 {
 	return v.x * u.x + v.y * u.y + v.z * u.z;
 }

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/23 01:48:52 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/24 02:18:36 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ typedef struct s_obj
 	struct s_obj	*next;
 }	t_obj;
 
+typedef struct s_light
+{
+	t_coordinates	light_co;
+	double			light_b;
+	int				light_color;
+	struct s_light			*next;
+} t_light;
+
 
 typedef struct s_scene
 {
@@ -51,11 +59,8 @@ typedef struct s_scene
 	t_coordinates	cam_vec_z;
 	double			fov;
 	t_coordinates	vvp;
-	t_coordinates	light_co;
-	double			light_b;
-	int				light_color;
+	t_light			*light;
 	t_obj			*obj;
-	t_obj 			*tab;
 }	t_scene;
 
 typedef struct	s_data
@@ -68,19 +73,22 @@ typedef struct	s_data
 	t_scene	scene;
 }				t_data;
 
-typedef struct s_mat
+typedef struct s_point
 {
-	size_t		raw;
-	size_t		col;
-	double		**l;
-} t_mat;
+	double			distance;
+	t_coordinates	point;
+	t_coordinates	normal;	
+	int				color;
+} t_point;
 
-typedef struct s_resobj
+typedef struct s_eqtpara
 {
-	t_obj	*obj;
-	double	distance;
-} t_resobj;
-
-t_coordinates prod_c(double a, t_coordinates u);
+	double	a;
+	double	b;
+	double	c;
+	double	delta;
+	double	r1;
+	double	r2;
+}	t_eqtpara;
 
 #endif

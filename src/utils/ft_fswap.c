@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_fswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 05:38:43 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 17:10:26 by rjaanit          ###   ########.fr       */
+/*   Created: 2023/01/23 22:33:53 by nhanafi           #+#    #+#             */
+/*   Updated: 2023/01/23 22:36:33 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-char	*ft_strcat(char *dest, char *src)
+void	ft_fswap(double *a, double *b)
 {
-	int	i;
-	int	j;
+	double swap;
 
-	i = 0;
-	j = 0;
-	while (dest[i] != 0)
-		i++;
-	while (src[j] != 0)
-	{
-		dest[i + j] = src[j];
-		j++;
-	}
-	dest[j + i] = 0;
-	return (dest);
+	swap = *a;
+	*a = *b;
+	*b = swap;
 }

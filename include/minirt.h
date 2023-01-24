@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:17:34 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/15 15:08:58 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/24 05:31:23 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,21 @@ double	dist_sq(t_coordinates a, t_coordinates b);
 int		equalc(t_coordinates a, t_coordinates b);
 void    get_vvp(t_scene *scene);
 //vector
-t_coordinates norm_c(t_coordinates v);
-t_coordinates mak_cor(double x, double y, double z);
-t_coordinates sub_c(t_coordinates v, t_coordinates u);
-t_coordinates prod_c(double a, t_coordinates u);
-t_coordinates add_c(t_coordinates v, t_coordinates u);
-double doty_prod_c(t_coordinates v, t_coordinates u);
-t_coordinates cross_prod_c(t_coordinates v, t_coordinates u);
+t_coordinates	norm_c(t_coordinates v);
+t_coordinates	mak_cor(double x, double y, double z);
+t_coordinates	sub_c(t_coordinates v, t_coordinates u);
+t_coordinates	prod_c(double a, t_coordinates u);
+t_coordinates	add_c(t_coordinates v, t_coordinates u);
+t_coordinates	cross_prod_c(t_coordinates v, t_coordinates u);
+t_coordinates	prod_c(double a, t_coordinates u);;
+double			dot_prod_c(t_coordinates v, t_coordinates u);
+//operation
+t_eqtpara    sd_equation(t_eqtpara parm);
+//intersection
+int	pixel_color(t_scene scene, int i, int j);
+t_point	*intersection_cylindre(t_coordinates v, t_obj *obj);
+t_point	*intersection_plan(t_coordinates v ,t_obj *obj);
+t_point	*intersection_sphere(t_coordinates v, t_obj *obj);
 // tmp
 void printc(t_coordinates c);
 #endif
