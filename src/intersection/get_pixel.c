@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:54:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/25 15:22:50 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/25 21:45:41 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int add_color(int color1, int color2)
 	return (r << 16) + (g << 8) + b;
 }
 
-int is_intersection_sphere(t_coordinates x, t_coordinates v, t_obj *obj)
+double is_intersection_sphere(t_coordinates x, t_coordinates v, t_obj *obj)
 {
 	t_eqtpara   parm;
 
@@ -69,9 +69,11 @@ int is_intersection_sphere(t_coordinates x, t_coordinates v, t_obj *obj)
 	parm = sd_equation(parm);
 	if (parm.delta < 0 || (parm.r1 <= EPSILON && parm.r2 <= EPSILON))
 		return (0);
-	return 1;
+	if (parm.r1)
+		return parm.r1;
+	return parm.r2;
 }
-int is_intersection_cylindre(t_coordinates x, t_coordinates v, t_obj *obj)
+double is_intersection_cylindre(t_coordinates x, t_coordinates v, t_obj *obj)
 {
 	t_eqtpara		parm;
 
@@ -87,22 +89,26 @@ int is_intersection_cylindre(t_coordinates x, t_coordinates v, t_obj *obj)
 	double m = dot_prod_c(v, obj->vec) * parm.r1 - dot_prod_c(x, obj->vec);
 	double m2 = dot_prod_c(v, obj->vec) * parm.r2 - dot_prod_c(x, obj->vec);
 	if (m >= 0 && m <= obj->height)
-		return 1;
-	if (m < 0 && m2 >= EPSILON)
-		return 1;
-	if (m > obj->height && m2 <= obj->height)
-		return 1;
+		return parm.r1;
+	// if (m < 0 && m2 >= EPSILON)
+	// 	return parm.r1;
+	// if (m > obj->height && m2 <= obj->height)
+	// 	return parm.r1;
 	return 0;
 }
 
 
 
-int is_intersected(t_scene scene, t_coordinates v, t_coordinates x)
+int is_intersected(t_scene scene, t_coordinates l, t_coordinates x)
 {
 	t_obj *obj;
-	int tmp;
+	double tmp;
+	double	maxdis;
 	t_point *res;
 
+	t_coordinates v = sub_c(l, x);
+	maxdis = sqrt(dot_prod_c(v, v));
+	v = norm_c(v);
 	obj = scene.obj;
 	res = NULL;
 	tmp = 0;
@@ -116,7 +122,7 @@ int is_intersected(t_scene scene, t_coordinates v, t_coordinates x)
 			tmp = is_intersection_cylindre(x, v, obj);
 		// else
 		// 	tmp = NULL;
-		if (tmp)
+		if (tmp && tmp <= maxdis)
 			return (1);
 		obj = obj->next;
 	}
@@ -130,8 +136,18 @@ double is_light(t_point *p, t_light *l, t_coordinates v)
 	t_coordinates vlight = norm_c(sub_c(l->light_co, p->point));
 	 
 	// if((dot_prod_c(vprinm, vlight)) > 0.9)
-		return (pow(dot_prod_c(vprinm, vlight), 23)) * l->light_b;
+	return (pow(dot_prod_c(vprinm, vlight), 23)) * l->light_b;
 	// return 0;
+}
+
+double is_light2(t_point *p, t_light *l, t_coordinates v)
+{
+	
+	 
+	// if((dot_prod_c(vprinm, vlight)) > 0.9)
+	if (dot_prod_c(l->light_co, v) < dot_prod_c(p->point, v))
+		return (pow(dot_prod_c(norm_c(l->light_co), v), 1));
+	return 0;
 }
 
 
@@ -167,13 +183,13 @@ int	pixel_color(t_scene scene, int i, int j)
 	// {
 	// 	return color_degree(0xffffff , );
 	// }
-	if(res && !is_intersected(scene, norm_c(sub_c(scene.light->light_co, res->point)), res->point))
+	if(res && !is_intersected(scene, scene.light->light_co, res->point))
 	{
-		// return res->color;
-		// printf("%f   ", dot_prod_c(norm_c(sub_c(scene.light->light_co, res->point)), res->normal));
 		return add_color(color_degree(res->color, scene.ratio),
-			add_color(color_degree(res->color, fabs(dot_prod_c(norm_c(sub_c(scene.light->light_co, res->point)),res->normal)))
+			add_color(color_degree(res->color, fabs(dot_prod_c(norm_c(sub_c(scene.light->light_co, res->point)), res->normal)))
 			,color_degree(0xffffff, is_light(res, scene.light, scene.cam[i][j]))));
 	}
-	return color_degree(res->color, scene.ratio);
+	if(res)
+		return color_degree(res->color, scene.ratio);
+	return 0;
 }
