@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:47:56 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/24 05:31:23 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/25 13:13:36 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ t_point *creat_sphere_point(t_obj *obj, t_coordinates v, double t)
     point->distance = t;
     point->point = prod_c(t, v);
     point->normal = norm_c(sub_c(point->point, obj->coor));
+	// {
+	// 	t_coordinates z = cross_prod_c(point->normal, mak_cor(1,1,1));
+	// 	t_coordinates y = cross_prod_c(z,point->normal);
+	// 	double angle1 = M_PI* (rand() % 11 - 5)/1000;
+	// 	double angle2 = M_PI* (rand() % 11 - 5)/1000;
+	// 	point->normal = add_c(prod_c(cos(angle1), point->normal), prod_c(sin(angle1), y));
+	// 	point->normal = add_c(prod_c(cos(angle2), point->normal), prod_c(sin(angle2), z));
+	// }
     point->color = obj->color;
     return point;
 }

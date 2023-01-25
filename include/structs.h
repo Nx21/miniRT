@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/24 02:18:36 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/25 12:54:15 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define STRUCTS_H
 
 # define EPSILON 1e-6
-# define WIDTH 1080
+# define WIDTH 720
 # define HEIGHT	720
 # include <stdlib.h>
 # include <unistd.h>

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:17:34 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/24 05:31:23 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/25 12:54:32 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@
 # include "get_next_line.h"
 # include "utils.h"
 # include "mlx.h"
-
-# define EPSILON 1e-6
-# define WIDTH 1080
-# define HEIGHT	720
 
 
 t_obj	*new_obj(int type);
