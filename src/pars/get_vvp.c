@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 12:13:54 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/23 20:48:46 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/26 17:24:26 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void    get_vvp(t_scene *scene)
 	scene->cam_vec_z = norm_c(cross_prod_c(scene->cam_vec_x, scene->cam_vec_y));
 	scene->cam_vec_y = norm_c(cross_prod_c(scene->cam_vec_z, scene->cam_vec_x));
 	double angtopix = (M_PI * scene->fov) / (180 * WIDTH);
-	for (int i = 0; i < WIDTH; i++)
+	for (i = 0; i < WIDTH; i++)
 	{
-		for (int j = 0; j < HEIGHT; j++)
+		for (j = 0; j < HEIGHT; j++)
 		{
 			scene->cam[i][j] = norm_c(add_c(scene->cam_vec_x, add_c(prod_c(sin(((double)(i - WIDTH/2) * angtopix)), scene->cam_vec_y),prod_c(sin((double)(HEIGHT/2 - j) * angtopix), scene->cam_vec_z))));
 		}

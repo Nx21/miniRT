@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/23 22:36:12 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/26 17:20:32 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "structs.h"
 
 int				ft_strlen(char *str);
-char			*ft_join(char *s1, char *s2);
+char			*ft_strjoin(char *s1, char *s2);
 int				ft_instr(char *str, char c);
 int				ft_get_last_ind(char *str, char *to_find);
 unsigned int	ft_atoi(char *str);

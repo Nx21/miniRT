@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 22:21:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/24 06:26:10 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/26 17:24:39 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ t_point	*get_point_cylindre(t_eqtpara parm, t_obj *obj, t_coordinates v)
 {
 	double m;
 	t_point *p;
-	t_obj	tmp;
 
 	m = dot_prod_c(v, obj->vec) * parm.r1 - dot_prod_c(obj->coor, obj->vec);
 	if (m >= 0 && m <= obj->height)

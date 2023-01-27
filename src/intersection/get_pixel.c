@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:54:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/25 21:45:41 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/26 17:24:55 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int color_degree(int color, double d)
 {
 	int r,g,b;
-	int rndm = rand();
+	// int rndm = rand();
 	// d = fabs(d);
 	r = ((int)(((color >> 16) & 0xff) * d));
 	if (r > 0xff)
@@ -87,7 +87,7 @@ double is_intersection_cylindre(t_coordinates x, t_coordinates v, t_obj *obj)
 	if (parm.delta < 0 || (parm.r1 <= EPSILON && parm.r2 <= EPSILON))
 		return (0);
 	double m = dot_prod_c(v, obj->vec) * parm.r1 - dot_prod_c(x, obj->vec);
-	double m2 = dot_prod_c(v, obj->vec) * parm.r2 - dot_prod_c(x, obj->vec);
+	// double m2 = dot_prod_c(v, obj->vec) * parm.r2 - dot_prod_c(x, obj->vec);
 	if (m >= 0 && m <= obj->height)
 		return parm.r1;
 	// if (m < 0 && m2 >= EPSILON)

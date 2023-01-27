@@ -6,38 +6,38 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 15:38:54 by orekabe           #+#    #+#             */
-/*   Updated: 2022/12/27 05:03:17 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/26 17:25:28 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char *s1, char *s2)
-{
-	char	*ptr;
-	int		i;
-	int		j;
+// char	*ft_strjoin(char *s1, char *s2)
+// {
+// 	char	*ptr;
+// 	int		i;
+// 	int		j;
 
-	if (!s1)
-	{
-		s1 = (char *)malloc(sizeof(char));
-		*s1 = '\0';
-	}
-	if (!s2)
-		return (NULL);
-	i = -1;
-	j = 0;
-	ptr = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (!ptr)
-		return (NULL);
-	while (s1[++i])
-		ptr[i] = s1[i];
-	while (s2[j])
-		ptr[i++] = s2[j++];
-	ptr[i] = '\0';
-	free (s1);
-	return (ptr);
-}
+// 	if (!s1)
+// 	{
+// 		s1 = (char *)malloc(sizeof(char));
+// 		*s1 = '\0';
+// 	}
+// 	if (!s2)
+// 		return (NULL);
+// 	i = -1;
+// 	j = 0;
+// 	ptr = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+// 	if (!ptr)
+// 		return (NULL);
+// 	while (s1[++i])
+// 		ptr[i] = s1[i];
+// 	while (s2[j])
+// 		ptr[i++] = s2[j++];
+// 	ptr[i] = '\0';
+// 	free (s1);
+// 	return (ptr);
+// }
 
 char	*ft_read(char *str, int fd)
 {

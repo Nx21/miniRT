@@ -6,11 +6,11 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/17 17:15:03 by nhanafi           #+#    #+#              #
-#    Updated: 2023/01/24 02:17:39 by nhanafi          ###   ########.fr        #
+#    Updated: 2023/01/26 17:24:08 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILES = main add_back utils/ft_atoi utils/ft_isalnum utils/ft_join utils/ft_putstr_fd utils/ft_strdup\
+FILES = main add_back utils/ft_atoi utils/ft_isalnum utils/ft_strjoin utils/ft_putstr_fd utils/ft_strdup\
 	utils/ft_strstr utils/instr utils/ft_calloc utils/ft_itoa utils/ft_memset utils/ft_split utils/ft_strcmp \
 	utils/ft_strlen utils/ft_substr utils/end_with utils/ft_strtrim utils/ft_atof utils/ft_strchr utils/ft_strrchr\
 	utils/ft_atoc utils/ft_count utils/ft_listlen utils/ft_atocolor utils/ft_fswap\
@@ -20,7 +20,7 @@ FILES = main add_back utils/ft_atoi utils/ft_isalnum utils/ft_join utils/ft_puts
 	intersection/sphere intersection/plane intersection/cylindre intersection/get_pixel
 	
 
-GCC = gcc -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit
+CC = cc -Wall -Wextra -Werror
 
 NAME = minirt
 
@@ -35,11 +35,11 @@ OBJ = $(addprefix $(ODIR)/, $(FILES:=.o))
 all: $(NAME)
 
 $(NAME): $(OBJ) 
-	$(GCC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)  -lmlx -framework OpenGL -framework AppKit
 
 $(ODIR)/%.o: src/%.c $(HEADER)
 	mkdir -p $(@D)
-	$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+	$(CC) -I$(INC) -c $< -o $@
 
 bonus: all
 

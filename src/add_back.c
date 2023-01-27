@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 04:40:49 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/19 14:04:04 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/26 17:23:55 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 t_obj *add_back(t_obj *head, t_obj *obj)
 {
-	t_obj	*tmp;
 	if (!head)
 	{
 		obj->id = 0;
