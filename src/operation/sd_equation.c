@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_eqtpara    sd_equation(t_eqtpara parm)
+t_quad_eq    sd_equation(t_quad_eq parm)
 {
     parm.delta = pow(parm.b, 2) - 4 * parm.a * parm.c;
     if (parm.delta < 0)

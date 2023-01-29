@@ -27,9 +27,10 @@ t_point *intersection_cylindre_down(t_coordinates v, t_obj *obj)
 	t_obj tmp;
 
 	tmp = *obj;
-	tmp.vec = sub_c(mak_cor(0,0,0), tmp.vec);
+	tmp.vec = sub_c(make_coor(0,0,0), tmp.vec);
 	return intersection_plan(v, &tmp);
 }
+
 t_point *intersection_cylindre_up(t_coordinates v, t_obj *obj)
 {
 	t_obj tmp;
@@ -39,7 +40,7 @@ t_point *intersection_cylindre_up(t_coordinates v, t_obj *obj)
 	return intersection_plan(v, &tmp);
 }
 
-t_point	*get_point_cylindre(t_eqtpara parm, t_obj *obj, t_coordinates v)
+t_point	*get_point_cylindre(t_quad_eq parm, t_obj *obj, t_coordinates v)
 {
 	double m;
 	t_point *p;
@@ -67,7 +68,7 @@ t_point	*get_point_cylindre(t_eqtpara parm, t_obj *obj, t_coordinates v)
 
 t_point	*intersection_cylindre(t_coordinates v, t_obj *obj)
 {
-	t_eqtpara		parm;
+	t_quad_eq		parm;
 
 	if(!obj || obj->type != 2)
 		return NULL;
@@ -75,7 +76,7 @@ t_point	*intersection_cylindre(t_coordinates v, t_obj *obj)
 	parm.b = -2 * (dot_prod_c(v, obj->coor) - dot_prod_c(v, obj->vec) * dot_prod_c(obj->coor, obj->vec));
 	parm.c = dot_prod_c(obj->coor, obj->coor) - pow(dot_prod_c(obj->coor, obj->vec), 2) - pow(obj->diameter, 2);
 	parm = sd_equation(parm);
-	if (parm.delta < 0)
+	if (parm.delta < EPSILON)
 		return (NULL);
 	return	(get_point_cylindre(parm, obj, v));
 }

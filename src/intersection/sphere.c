@@ -21,7 +21,7 @@ t_point *creat_sphere_point(t_obj *obj, t_coordinates v, double t)
     point->point = prod_c(t, v);
     point->normal = norm_c(sub_c(point->point, obj->coor));
 	// {
-	// 	t_coordinates z = cross_prod_c(point->normal, mak_cor(1,1,1));
+	// 	t_coordinates z = cross_prod_c(point->normal, make_coor(1,1,1));
 	// 	t_coordinates y = cross_prod_c(z,point->normal);
 	// 	double angle1 = M_PI* (rand() % 11 - 5)/1000;
 	// 	double angle2 = M_PI* (rand() % 11 - 5)/1000;
@@ -35,7 +35,7 @@ t_point *creat_sphere_point(t_obj *obj, t_coordinates v, double t)
 
 t_point	*intersection_sphere(t_coordinates v, t_obj *obj)
 {
-	t_eqtpara   parm;
+	t_quad_eq   parm;
 
 	if(!obj || obj->type != 0)
 		return NULL;
@@ -43,7 +43,7 @@ t_point	*intersection_sphere(t_coordinates v, t_obj *obj)
 	parm.b = -2 * dot_prod_c(v, obj->coor);
 	parm.c = dot_prod_c(obj->coor, obj->coor)  - pow(obj->diameter, 2);
 	parm = sd_equation(parm);
-	if (parm.delta < 0)
+	if (parm.delta < EPSILON)
 		return (NULL);
 	return (creat_sphere_point(obj, v, parm.r1));
 }

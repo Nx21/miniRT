@@ -58,7 +58,7 @@ int add_color(int color1, int color2)
 
 double is_intersection_sphere(t_coordinates x, t_coordinates v, t_obj *obj)
 {
-	t_eqtpara   parm;
+	t_quad_eq   parm;
 
 	x = sub_c(obj->coor, x);
 	if(!obj || obj->type != 0)
@@ -75,7 +75,7 @@ double is_intersection_sphere(t_coordinates x, t_coordinates v, t_obj *obj)
 }
 double is_intersection_cylindre(t_coordinates x, t_coordinates v, t_obj *obj)
 {
-	t_eqtpara		parm;
+	t_quad_eq		parm;
 
 	if(!obj || obj->type != 2)
 		return 0;
@@ -163,11 +163,11 @@ int	pixel_color(t_scene scene, int i, int j)
 	while(obj)
 	{
 		if(obj->type == 0)
-			tmp = intersection_sphere(scene.cam[i][j], obj);
+			tmp = intersection_sphere(scene.v_cam[i][j], obj);
 		else if (obj->type == 1)
-			tmp = intersection_plan(scene.cam[i][j], obj);
+			tmp = intersection_plan(scene.v_cam[i][j], obj);
 		else if (obj->type == 2)
-			tmp = intersection_cylindre(scene.cam[i][j], obj);
+			tmp = intersection_cylindre(scene.v_cam[i][j], obj);
 		else
 			tmp = NULL;
 		if (tmp && (!res || res->distance > tmp->distance))
@@ -187,7 +187,7 @@ int	pixel_color(t_scene scene, int i, int j)
 	{
 		return add_color(color_degree(res->color, scene.ratio),
 			add_color(color_degree(res->color, fabs(dot_prod_c(norm_c(sub_c(scene.light->light_co, res->point)), res->normal)))
-			,color_degree(0xffffff, is_light(res, scene.light, scene.cam[i][j]))));
+			,color_degree(0xffffff, is_light(res, scene.light, scene.v_cam[i][j]))));
 	}
 	if(res)
 		return color_degree(res->color, scene.ratio);

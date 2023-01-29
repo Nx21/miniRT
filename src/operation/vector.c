@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_coordinates mak_cor(double x, double y, double z)
+t_coordinates make_coor(double x, double y, double z)
 {
 	t_coordinates res;
 

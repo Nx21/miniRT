@@ -35,10 +35,10 @@ t_point	*intersection_plan(t_coordinates v ,t_obj *obj)
 	if (!r1 && !r2)
 		return creat_plane_point(obj, v, 0);
 	// printf("%f ", r2);
-	if (!r1)
+	if (equal(r1, 0))
 		return NULL;
 	res = r2/r1;
-	if (res < 0)
+	if (res < EPSILON)
 		return NULL;
 	return (creat_plane_point(obj, v, res));
 }

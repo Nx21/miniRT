@@ -16,16 +16,17 @@
 # define EPSILON 1e-6
 # define WIDTH 720
 # define HEIGHT	720
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
+
 typedef	struct s_coordinates
 {
 	double	x;
 	double	y;
 	double	z;
 }	t_coordinates;
-
 
 typedef struct s_obj
 {
@@ -44,7 +45,7 @@ typedef struct s_light
 	t_coordinates	light_co;
 	double			light_b;
 	int				light_color;
-	struct s_light			*next;
+	struct s_light	*next;
 } t_light;
 
 
@@ -52,13 +53,12 @@ typedef struct s_scene
 {
 	int				ambientcolor;
 	double			ratio;
-	t_coordinates	**cam;
+	t_coordinates	**v_cam;
 	t_coordinates	cam_co;
 	t_coordinates	cam_vec_x;
 	t_coordinates	cam_vec_y;
 	t_coordinates	cam_vec_z;
 	double			fov;
-	t_coordinates	vvp;
 	t_light			*light;
 	t_obj			*obj;
 }	t_scene;
@@ -81,7 +81,7 @@ typedef struct s_point
 	int				color;
 } t_point;
 
-typedef struct s_eqtpara
+typedef struct s_quad_eq
 {
 	double	a;
 	double	b;
@@ -89,6 +89,6 @@ typedef struct s_eqtpara
 	double	delta;
 	double	r1;
 	double	r2;
-}	t_eqtpara;
+}	t_quad_eq;
 
 #endif

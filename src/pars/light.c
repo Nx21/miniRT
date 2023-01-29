@@ -29,7 +29,7 @@ void	light_pars(char *line, t_scene *scene, int fd)
 
 	
 	tmp = ft_split(line, ' ');
-	if (ft_listlen(tmp) != 4 || ft_strcmp(tmp[0], "L"))
+	if (ft_lstsize(tmp) != 4 || ft_strcmp(tmp[0], "L"))
 		exit(1);
 	light = new_light(scene->light);
 	light->light_co = ft_atoc(tmp[1]);

@@ -29,16 +29,16 @@ double dot_prod_c(t_coordinates v, t_coordinates u)
 
 t_coordinates add_c(t_coordinates v, t_coordinates u)
 {
-	return mak_cor(v.x + u.x, v.y + u.y, v.z + u.z);
+	return make_coor(v.x + u.x, v.y + u.y, v.z + u.z);
 }
 
 t_coordinates prod_c(double a, t_coordinates u)
 {
-	return mak_cor(a * u.x, a * u.y, a * u.z);
+	return make_coor(a * u.x, a * u.y, a * u.z);
 }
 
 
 t_coordinates sub_c(t_coordinates v, t_coordinates u)
 {
-	return mak_cor(v.x - u.x, v.y - u.y, v.z - u.z);
+	return make_coor(v.x - u.x, v.y - u.y, v.z - u.z);
 }

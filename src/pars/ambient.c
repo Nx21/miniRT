@@ -17,7 +17,7 @@ void	ambient_pars(char *line, t_scene *scene, int fd)
 	char **tmp;
 
 	tmp = ft_split(line, ' ');
-	if (scene->ambientcolor >= 0 || ft_listlen(tmp) != 3 || ft_strcmp(tmp[0], "A"))
+	if (scene->ambientcolor >= 0 || ft_lstsize(tmp) != 3 || ft_strcmp(tmp[0], "A"))
 		exit(1);
 	scene->ratio = ft_atof(tmp[1]);
 	scene->ambientcolor = ft_atocolor(tmp[2]);

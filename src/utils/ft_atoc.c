@@ -18,7 +18,7 @@ t_coordinates	ft_atoc(char *str)
 	char			**list;
 
 	list = ft_split(str, ',');
-	if (ft_listlen(list) != 3 && ft_count(str, '.') != 3)
+	if (ft_lstsize(list) != 3 && ft_count(str, '.') != 3)
 		exit(1);
 	res.x = ft_atof(list[0]);
 	res.y = ft_atof(list[1]);

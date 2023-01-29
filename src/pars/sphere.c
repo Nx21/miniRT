@@ -18,7 +18,7 @@ void	sphere_pars(char *line, t_scene *scene, int fd)
 	t_obj	*obj;
 
 	tmp = ft_split(line, ' ');
-	if (ft_listlen(tmp) != 4 || ft_strcmp(tmp[0], "sp"))
+	if (ft_lstsize(tmp) != 4 || ft_strcmp(tmp[0], "sp"))
 		exit(1);
 	obj = new_obj(0);
 	obj->coor = ft_atoc(tmp[1]);

@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 12:59:19 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/26 00:52:18 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/12/26 02:32:27 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/12/27 04:58:13 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-char	*ft_strchr(char *str, int c)
+int ft_lstsize(char **list)
 {
-	int		i;
+	int len;
 
-	if (!c)
-		return ((char *)str + ft_strlen(str));
+	if(!list)
+		return 0;
+	len = 0;
+	while(list[len])
+		len++;
+	return len;
+}
+
+void	free_list(char **list)
+{
+	int	i;
+
 	i = 0;
-	while (str[i])
+	while(list[i])
 	{
-		if ((int)str[i] == c)
-			return ((char *)str + i);
+		free(list[i]);
 		i++;
 	}
-	return (NULL);
+	free(list);
 }
