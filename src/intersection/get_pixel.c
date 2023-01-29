@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:54:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/26 17:24:55 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/27 02:35:15 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ double is_intersection_sphere(t_coordinates x, t_coordinates v, t_obj *obj)
 	parm.b = -2 * dot_prod_c(v, x);
 	parm.c = dot_prod_c(x, x)  - pow(obj->diameter, 2);
 	parm = sd_equation(parm);
-	if (parm.delta < 0 || (parm.r1 <= EPSILON && parm.r2 <= EPSILON))
+	if (parm.delta < EPSILON || (parm.r1 <= EPSILON && parm.r2 <= EPSILON))
 		return (0);
-	if (parm.r1)
+	if (parm.r1 > EPSILON)
 		return parm.r1;
 	return parm.r2;
 }
