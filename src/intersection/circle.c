@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_back.c                                         :+:      :+:    :+:   */
+/*   circle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 04:40:49 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/26 17:23:55 by nhanafi          ###   ########.fr       */
+/*   Created: 2023/01/24 01:47:56 by nhanafi           #+#    #+#             */
+/*   Updated: 2023/01/30 04:57:08 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_obj *add_back(t_obj *head, t_obj *obj)
-{
-	if (!head)
-	{
-		obj->id = 0;
-		return obj;
-	}
-	obj->id = head->id + 1;
-	obj->next = head;
-	return obj;
-}
 
-t_obj	*new_obj(int type)
-{
-	t_obj	*obj;
 
-	obj = (t_obj *)malloc(sizeof(t_obj));
-	if (!obj)
-		exit(1);
-	obj->type = type;
-	obj->next = NULL;
-	return obj;
+t_point	*intersection_circle(t_coordinates v, t_obj *obj)
+{
+	t_point	*point;
+	t_coordinates tmp;
+
+	if(!obj || obj->type != 3)
+		return NULL;
+	point = intersection_plan(v, obj);
+	if(!point)
+		return NULL;
+	tmp = sub_c(point->point, obj->coor);
+	if (dot_prod_c(tmp, tmp) > (obj->diameter * obj->diameter))
+		return (free(point), NULL);
+	return point;
 }

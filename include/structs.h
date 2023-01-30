@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/25 12:54:15 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 05:40:25 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
+
 typedef	struct s_coordinates
 {
 	double	x;
@@ -26,13 +27,21 @@ typedef	struct s_coordinates
 	double	z;
 }	t_coordinates;
 
+typedef	struct s_color
+{
+	int	tr;
+	int	r;
+	int	g;
+	int	b;
+}	t_color;
+
 
 typedef struct s_obj
 {
 	int				id;
 	int				type;
 	t_coordinates	coor;
-	int				color;
+	t_color			color;
 	t_coordinates	vec;
 	double			diameter;
 	double			height;
@@ -43,14 +52,14 @@ typedef struct s_light
 {
 	t_coordinates	light_co;
 	double			light_b;
-	int				light_color;
+	t_color			light_color;
 	struct s_light			*next;
 } t_light;
 
 
 typedef struct s_scene
 {
-	int				ambientcolor;
+	t_color			ambientcolor;
 	double			ratio;
 	t_coordinates	**cam;
 	t_coordinates	cam_co;
@@ -78,7 +87,7 @@ typedef struct s_point
 	double			distance;
 	t_coordinates	point;
 	t_coordinates	normal;	
-	int				color;
+	t_color			color;
 } t_point;
 
 typedef struct s_eqtpara

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 08:51:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/25 11:09:21 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 00:43:02 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	scene_init(t_scene *scene)
 {
-	scene->ambientcolor = -1;
+	scene->ratio = -1;
 	scene->fov = -1;
 	scene->light = NULL;
 	scene->obj = NULL;
@@ -54,6 +54,27 @@ void	change_referance(t_scene *scene)
 	scene->cam_co = sub_c(scene->cam_co, scene->cam_co);
 }
 
+
+void brighting(t_scene *scene)
+{
+	t_light *tmp;
+	double	sum;
+
+	tmp = scene->light;
+	sum = 0;
+	while (tmp)
+	{
+		sum++;
+		tmp = tmp->next;
+	}
+	tmp = scene->light;
+	while (tmp)
+	{
+		tmp->light_b /= sum;
+		tmp = tmp->next;
+	}
+}
+
 int main(int argc, char const *argv[])
 {
 	t_scene	scene;
@@ -72,6 +93,7 @@ int main(int argc, char const *argv[])
 	scene_init(&scene);
 	pars(&scene, fd);
 	get_vvp(&scene);
+	// brighting(&scene);
 	change_referance(&scene);
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, WIDTH, HEIGHT, "miniRT");

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:17:34 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/25 12:54:32 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 03:49:04 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 
 t_obj	*new_obj(int type);
-t_obj	*add_back(t_obj *head, t_obj *obj);
+t_obj	*add_front(t_obj *head, t_obj *obj);
 void	pars(t_scene *scene, int fd);
 void	sphere_pars(char *line, t_scene *scene, int fd);
 void	plane_pars(char *line, t_scene *scene, int fd);
@@ -39,7 +39,7 @@ int		equalc(t_coordinates a, t_coordinates b);
 void    get_vvp(t_scene *scene);
 //vector
 t_coordinates	norm_c(t_coordinates v);
-t_coordinates	mak_cor(double x, double y, double z);
+t_coordinates	make_coor(double x, double y, double z);
 t_coordinates	sub_c(t_coordinates v, t_coordinates u);
 t_coordinates	prod_c(double a, t_coordinates u);
 t_coordinates	add_c(t_coordinates v, t_coordinates u);
@@ -53,6 +53,7 @@ int	pixel_color(t_scene scene, int i, int j);
 t_point	*intersection_cylindre(t_coordinates v, t_obj *obj);
 t_point	*intersection_plan(t_coordinates v ,t_obj *obj);
 t_point	*intersection_sphere(t_coordinates v, t_obj *obj);
+t_point	*intersection_circle(t_coordinates v, t_obj *obj);
 // tmp
 void printc(t_coordinates c);
 #endif

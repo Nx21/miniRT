@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:38:22 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/24 05:31:23 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 04:22:26 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ t_point	*intersection_plan(t_coordinates v ,t_obj *obj)
 	r2 = dot_prod_c(obj->coor,obj->vec);
 	if (!r1 && !r2)
 		return creat_plane_point(obj, v, 0);
-	// printf("%f ", r2);
 	if (!r1)
 		return NULL;
 	res = r2/r1;

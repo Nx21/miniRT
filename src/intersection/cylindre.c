@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 22:21:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/26 17:24:39 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 04:29:34 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,22 @@ t_point *creat_point_cylindre(t_coordinates p, t_coordinates c, t_coordinates v)
 	return point;
 }
 
-t_point *intersection_cylindre_down(t_coordinates v, t_obj *obj)
-{
-	t_obj tmp;
+// t_point *intersection_cylindre_down(t_coordinates v, t_obj *obj)
+// {
+// 	t_obj tmp;
 
-	tmp = *obj;
-	tmp.vec = sub_c(mak_cor(0,0,0), tmp.vec);
-	return intersection_plan(v, &tmp);
-}
-t_point *intersection_cylindre_up(t_coordinates v, t_obj *obj)
-{
-	t_obj tmp;
+// 	tmp = *obj;
+// 	tmp.vec = sub_c(make_coor(0,0,0), tmp.vec);
+// 	return intersection_plan(v, &tmp);
+// }
+// t_point *intersection_cylindre_up(t_coordinates v, t_obj *obj)
+// {
+// 	t_obj tmp;
 
-	tmp = *obj;
-	tmp.coor = add_c(tmp.coor,prod_c(tmp.height, tmp.vec));
-	return intersection_plan(v, &tmp);
-}
+// 	tmp = *obj;
+// 	tmp.coor = add_c(tmp.coor,prod_c(tmp.height, tmp.vec));
+// 	return intersection_plan(v, &tmp);
+// }
 
 t_point	*get_point_cylindre(t_eqtpara parm, t_obj *obj, t_coordinates v)
 {
@@ -52,17 +52,18 @@ t_point	*get_point_cylindre(t_eqtpara parm, t_obj *obj, t_coordinates v)
 		p->distance = parm.r1;
 		return p;
 	}
-	else if (m < 0)
-	{
-		m = dot_prod_c(v, obj->vec) * parm.r2 - dot_prod_c(obj->coor, obj->vec);
-		if(m < 0)
-			return NULL;
-		return intersection_cylindre_down(v, obj);;
-	}
-	m = dot_prod_c(v, obj->vec) * parm.r2 - dot_prod_c(obj->coor, obj->vec);
-	if(m > obj->height)
-		return NULL;
-	return intersection_cylindre_up(v, obj);
+	return NULL;
+// 	else if (m < 0)
+// 	{
+// 		m = dot_prod_c(v, obj->vec) * parm.r2 - dot_prod_c(obj->coor, obj->vec);
+// 		if(m < 0)
+// 			return NULL;
+// 		return intersection_cylindre_down(v, obj);;
+// 	}
+// 	m = dot_prod_c(v, obj->vec) * parm.r2 - dot_prod_c(obj->coor, obj->vec);
+// 	if(m > obj->height)
+// 		return NULL;
+// 	return intersection_cylindre_up(v, obj);
 }
 
 t_point	*intersection_cylindre(t_coordinates v, t_obj *obj)

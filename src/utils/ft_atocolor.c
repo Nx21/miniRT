@@ -6,21 +6,40 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:41:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/26 04:47:29 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/29 21:53:40 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int	ft_atocolor(char *str)
+t_color	ft_atocolor(char *str)
 {
-	int	res;
-	t_coordinates tmp;
+	t_color	res;
+	char	**list;
 
-	tmp = ft_atoc(str);
-	if(tmp.x > 255 || tmp.y > 255 || tmp.z > 255 ||\
-		tmp.x < 0 || tmp.y < 0|| tmp.z < 0)
+	list = ft_split(str, ',');
+	if (ft_listlen(list) != 3 && ft_count(str, ',') != 3)
 		exit(1);
-	res = (((int)tmp.x & 0xff) << 16) + (((int)tmp.y & 0xff) << 8) + ((int)tmp.z & 0xff); 
-	return (res);
+	res.r = ft_atof(list[0]);
+	res.g = ft_atof(list[1]);
+	res.b = ft_atof(list[2]);
+	res.tr = 0;
+	free_list(list);
+	return	(res);
+}
+
+t_color	ft_itocolor(int color)
+{
+	t_color	res;
+	
+	res.tr = (color >> 24) & 256;
+	res.r = (color >> 16) % 256;
+	res.g = (color >> 8) % 256;
+	res.b = (color) % 256;
+	return res;
+}
+
+int	ft_colortoi(t_color color)
+{
+	return  (((int)color.r ) << 16) + (((int)color.g ) << 8) + ((int)color.b);
 }

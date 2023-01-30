@@ -4,6 +4,7 @@
         "complex": "c",
         "vector": "cpp",
         "algorithm": "c",
-        "__locale": "c"
+        "__locale": "c",
+        "minirt.h": "c"
     }
 }

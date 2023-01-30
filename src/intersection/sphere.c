@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:47:56 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/25 13:13:36 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 02:05:59 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,24 @@
 t_point *creat_sphere_point(t_obj *obj, t_coordinates v, double t)
 {
     t_point *point;
+	int res = 0, res2 = 0;
 
     point = (t_point *)malloc(sizeof(t_point));
     point->distance = t;
     point->point = prod_c(t, v);
     point->normal = norm_c(sub_c(point->point, obj->coor));
-	// {
-	// 	t_coordinates z = cross_prod_c(point->normal, mak_cor(1,1,1));
-	// 	t_coordinates y = cross_prod_c(z,point->normal);
-	// 	double angle1 = M_PI* (rand() % 11 - 5)/1000;
-	// 	double angle2 = M_PI* (rand() % 11 - 5)/1000;
-	// 	point->normal = add_c(prod_c(cos(angle1), point->normal), prod_c(sin(angle1), y));
-	// 	point->normal = add_c(prod_c(cos(angle2), point->normal), prod_c(sin(angle2), z));
-	// }
-    point->color = obj->color;
+	{
+		t_coordinates x = prod_c(dot_prod_c(make_coor(0,1,0), point->normal),  make_coor(0,1,0));
+		x = norm_c(sub_c(point->normal, x));
+		res = (acos((dot_prod_c(x, make_coor(1,0,0)))) * 5);
+		t_coordinates y = prod_c(dot_prod_c(make_coor(0,0,1), point->normal),  make_coor(0,0,1));
+		y = norm_c(sub_c(point->normal, y));
+		res2 = (acos(dot_prod_c(y, make_coor(1,0,0))) * 5);
+		if ((res + res2) % 2)
+			point->color = obj->color;
+		else
+			point->color = ft_itocolor(0xffffff);
+	}
     return point;
 }
 
