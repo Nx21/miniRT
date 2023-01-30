@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:47:56 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 05:52:49 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 21:44:28 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,14 @@ t_point *creat_sphere_point(t_obj *obj, t_coordinates v, double t)
 	{
 		t_coordinates x = prod_c(dot_prod_c(make_coor(0,1,0), point->normal),  make_coor(0,1,0));
 		x = norm_c(sub_c(point->normal, x));
-		res = (acos((dot_prod_c(x, make_coor(1,0,0)))) * 5);
+		// x = point->normal;
+		// res = atan(x.z/x.x) * 10 / M_PI;
+		res = (point->point.z - obj->coor.z);
 		t_coordinates y = prod_c(dot_prod_c(make_coor(0,0,1), point->normal),  make_coor(0,0,1));
 		y = norm_c(sub_c(point->normal, y));
-		res2 = (acos(dot_prod_c(y, make_coor(1,0,0))) * 5);
-		if ((res + res2) % 2)
+		// y = point->normal;
+		res2 = atan(y.y/y.x) * 20 / M_PI;
+		if ((int)(res + res2) % 2 == 0)
 			point->color = obj->color;
 		else
 			point->color = ft_itocolor(0xffffff);

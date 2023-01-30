@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:41:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/29 21:53:40 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 05:58:20 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_color	ft_atocolor(char *str)
 	char	**list;
 
 	list = ft_split(str, ',');
-	if (ft_listlen(list) != 3 && ft_count(str, ',') != 3)
+	if (ft_lstsize(list) != 3 && ft_count(str, ',') != 3)
 		exit(1);
 	res.r = ft_atof(list[0]);
 	res.g = ft_atof(list[1]);

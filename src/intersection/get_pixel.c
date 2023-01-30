@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:54:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 05:53:15 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 05:59:58 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,9 +212,9 @@ int	pixel_color(t_scene scene, int i, int j)
 		else if (obj->type == 1)
 			tmp = intersection_plan(scene.v_cam[i][j], obj);
 		else if (obj->type == 2)
-			tmp = intersection_cylindre(scene.cam[i][j], obj);
+			tmp = intersection_cylindre(scene.v_cam[i][j], obj);
 		else if (obj->type == 3)
-			tmp = intersection_circle(scene.cam[i][j], obj);
+			tmp = intersection_circle(scene.v_cam[i][j], obj);
 		else
 			tmp = NULL;
 		if (tmp && (!res || res->distance > tmp->distance))
@@ -237,7 +237,7 @@ int	pixel_color(t_scene scene, int i, int j)
 		{
 			// color = (color_degree(res->color, fabs(dot_prod_c(norm_c(sub_c(l->light_co, res->point)), res->normal))));
 			color = add_color(color, (add_color(color_degree(res->color, l->light_b * fabs(dot_prod_c(norm_c(sub_c(l->light_co, res->point)), res->normal)))
-				,color_degree(l->light_color, l->light_b * is_light(res, l, scene.cam[i][j])))));
+				,color_degree(l->light_color, l->light_b * is_light(res, l, scene.v_cam[i][j])))));
 		}
 		l = l->next;
 	}
