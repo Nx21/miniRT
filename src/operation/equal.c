@@ -22,7 +22,7 @@ int greater(double a, double b)
     return a >= b || equal(a, b);
 }
 
-int equalc(t_coordinates a, t_coordinates b)
+int equal_coor(t_coordinates a, t_coordinates b)
 {
     return equal(a.x, b.x) && equal(a.y, b.y) && equal(a.z, b.z);
 }

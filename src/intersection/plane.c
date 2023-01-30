@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:38:22 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 04:22:26 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 05:51:03 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_point	*intersection_plan(t_coordinates v ,t_obj *obj)
 	if (!r1)
 		return NULL;
 	res = r2/r1;
-	if (res < 0)
+	if (res < EPSILON)
 		return NULL;
 	return (creat_plane_point(obj, v, res));
 }

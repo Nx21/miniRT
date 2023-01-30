@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 08:51:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 00:43:02 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 05:51:35 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	scene_init(t_scene *scene)
 	scene->fov = -1;
 	scene->light = NULL;
 	scene->obj = NULL;
-	scene->cam = (t_coordinates **)malloc(WIDTH * sizeof(t_coordinates *));
+	scene->v_cam = (t_coordinates **)malloc(WIDTH * sizeof(t_coordinates *));
 	for (size_t i = 0; i < WIDTH; i++)
 	{
-		scene->cam[i] = (t_coordinates *)malloc(HEIGHT * sizeof(t_coordinates));
+		scene->v_cam[i] = (t_coordinates *)malloc(HEIGHT * sizeof(t_coordinates));
 	}
 	
 }
@@ -92,8 +92,7 @@ int main(int argc, char const *argv[])
 		return (1);
 	scene_init(&scene);
 	pars(&scene, fd);
-	get_vvp(&scene);
-	// brighting(&scene);
+	get_v_cam(&scene);
 	change_referance(&scene);
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, WIDTH, HEIGHT, "miniRT");

@@ -22,7 +22,7 @@ void	cylinder_pars(char *line, t_scene *scene, int fd)
 	t_obj	*newobj;
 
 	tmp = ft_split(line, ' ');
-	if (ft_listlen(tmp) != 6 || ft_strcmp(tmp[0], "cy"))
+	if (ft_lstsize(tmp) != 6 || ft_strcmp(tmp[0], "cy"))
 		exit(1);
 	obj = new_obj(2);
 	obj->coor = ft_atoc(tmp[1]);

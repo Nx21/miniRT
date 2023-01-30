@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 22:21:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 04:29:34 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 05:53:28 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_point *creat_point_cylindre(t_coordinates p, t_coordinates c, t_coordinates v)
 // 	return intersection_plan(v, &tmp);
 // }
 
-t_point	*get_point_cylindre(t_eqtpara parm, t_obj *obj, t_coordinates v)
+t_point	*get_point_cylindre(t_quad_eq parm, t_obj *obj, t_coordinates v)
 {
 	double m;
 	t_point *p;
@@ -68,7 +68,7 @@ t_point	*get_point_cylindre(t_eqtpara parm, t_obj *obj, t_coordinates v)
 
 t_point	*intersection_cylindre(t_coordinates v, t_obj *obj)
 {
-	t_eqtpara		parm;
+	t_quad_eq		parm;
 
 	if(!obj || obj->type != 2)
 		return NULL;
@@ -76,7 +76,7 @@ t_point	*intersection_cylindre(t_coordinates v, t_obj *obj)
 	parm.b = -2 * (dot_prod_c(v, obj->coor) - dot_prod_c(v, obj->vec) * dot_prod_c(obj->coor, obj->vec));
 	parm.c = dot_prod_c(obj->coor, obj->coor) - pow(dot_prod_c(obj->coor, obj->vec), 2) - pow(obj->diameter, 2);
 	parm = sd_equation(parm);
-	if (parm.delta < 0)
+	if (parm.delta < EPSILON)
 		return (NULL);
 	return	(get_point_cylindre(parm, obj, v));
 }

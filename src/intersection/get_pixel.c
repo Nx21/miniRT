@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:54:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 05:41:24 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 05:53:15 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_color add_color(t_color color1, t_color color2)
 
 double is_intersection_sphere(t_coordinates x, t_coordinates v, t_obj *obj)
 {
-	t_eqtpara   parm;
+	t_quad_eq   parm;
 
 	x = sub_c(obj->coor, x);
 	if(!obj || obj->type != 0)
@@ -78,7 +78,7 @@ double is_intersection_sphere(t_coordinates x, t_coordinates v, t_obj *obj)
 
 double is_intersection_cylindre(t_coordinates x, t_coordinates v, t_obj *obj)
 {
-	t_eqtpara		parm;
+	t_quad_eq		parm;
 
 	if(!obj || obj->type != 2)
 		return 0;
@@ -208,9 +208,9 @@ int	pixel_color(t_scene scene, int i, int j)
 	while(obj)
 	{
 		if(obj->type == 0)
-			tmp = intersection_sphere(scene.cam[i][j], obj);
+			tmp = intersection_sphere(scene.v_cam[i][j], obj);
 		else if (obj->type == 1)
-			tmp = intersection_plan(scene.cam[i][j], obj);
+			tmp = intersection_plan(scene.v_cam[i][j], obj);
 		else if (obj->type == 2)
 			tmp = intersection_cylindre(scene.cam[i][j], obj);
 		else if (obj->type == 3)

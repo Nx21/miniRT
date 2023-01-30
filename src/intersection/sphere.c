@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:47:56 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 02:05:59 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/30 05:52:49 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_point *creat_sphere_point(t_obj *obj, t_coordinates v, double t)
 
 t_point	*intersection_sphere(t_coordinates v, t_obj *obj)
 {
-	t_eqtpara   parm;
+	t_quad_eq   parm;
 
 	if(!obj || obj->type != 0)
 		return NULL;
@@ -47,7 +47,7 @@ t_point	*intersection_sphere(t_coordinates v, t_obj *obj)
 	parm.b = -2 * dot_prod_c(v, obj->coor);
 	parm.c = dot_prod_c(obj->coor, obj->coor)  - pow(obj->diameter, 2);
 	parm = sd_equation(parm);
-	if (parm.delta < 0)
+	if (parm.delta < EPSILON)
 		return (NULL);
 	return (creat_sphere_point(obj, v, parm.r1));
 }

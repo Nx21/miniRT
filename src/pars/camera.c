@@ -17,7 +17,7 @@ void	camera_pars(char *line, t_scene *scene, int fd)
 	char **tmp;
 
 	tmp = ft_split(line, ' ');
-	if (scene->fov >= 0 || ft_listlen(tmp) != 4 || ft_strcmp(tmp[0], "C"))
+	if (scene->fov >= 0 || ft_lstsize(tmp) != 4 || ft_strcmp(tmp[0], "C"))
 		exit(1);
 	scene->cam_co = ft_atoc(tmp[1]);
 	scene->cam_vec_x = ft_atoc(tmp[2]);
