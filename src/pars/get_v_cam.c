@@ -15,24 +15,20 @@
 
 void    get_v_cam(t_scene *scene)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	t_ref	ref;
 
 	i = 0;
 	// printc(scene->cam_vec_x);
+	ref = creat_ref(scene->cam_vec_x);
 	scene->cam_vec_x = norm_c(scene->cam_vec_x);
-	// printc(scene->cam_vec_x);
-	scene->cam_vec_y = make_coor(0,1,0);
-	if (equal_coor(norm_c(scene->cam_vec_x), make_coor(0,1,0)))
-		scene->cam_vec_y = make_coor(-1,0,0);
-	scene->cam_vec_z = norm_c(cross_prod_c(scene->cam_vec_x, scene->cam_vec_y));
-	scene->cam_vec_y = norm_c(cross_prod_c(scene->cam_vec_z, scene->cam_vec_x));
 	double angtopix = (M_PI * scene->fov) / (180 * WIDTH);
 	for (i = 0; i < WIDTH; i++)
 	{
 		for (j = 0; j < HEIGHT; j++)
 		{
-			scene->v_cam[i][j] = norm_c(add_c(scene->cam_vec_x, add_c(prod_c(sin(((double)(i - WIDTH/2) * angtopix)), scene->cam_vec_y),prod_c(sin((double)(HEIGHT/2 - j) * angtopix), scene->cam_vec_z))));
+			scene->v_cam[i][j] = norm_c(add_c(ref.i, add_c(prod_c(sin(((double)(i - WIDTH/2) * angtopix)), ref.j),prod_c(sin((double)(HEIGHT/2 - j) * angtopix), ref.k))));
 		}
 	}
 }

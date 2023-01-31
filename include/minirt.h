@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:17:34 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 05:54:08 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/31 10:50:01 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ t_coordinates	prod_c(double a, t_coordinates u);
 t_coordinates	add_c(t_coordinates v, t_coordinates u);
 t_coordinates	cross_prod_c(t_coordinates v, t_coordinates u);
 double			dot_prod_c(t_coordinates v, t_coordinates u);
+t_ref			creat_ref(t_coordinates vec);
 
 //operation
 t_quad_eq    sd_equation(t_quad_eq parm);
-
 //intersection
 int	    pixel_color(t_scene scene, int i, int j);
 t_point	*intersection_cylindre(t_coordinates v, t_obj *obj);

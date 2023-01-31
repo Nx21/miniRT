@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:04:42 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 05:36:36 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/31 11:20:23 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	cylinder_pars(char *line, t_scene *scene, int fd)
 	t_obj	*newobj;
 
 	tmp = ft_split(line, ' ');
-	if (ft_lstsize(tmp) != 6 || ft_strcmp(tmp[0], "cy"))
+	if ((ft_lstsize(tmp) != 6 && ft_lstsize(tmp) != 7) || ft_strcmp(tmp[0], "cy"))
 		exit(1);
 	obj = new_obj(2);
 	obj->coor = ft_atoc(tmp[1]);
@@ -30,10 +30,14 @@ void	cylinder_pars(char *line, t_scene *scene, int fd)
 	obj->diameter = ft_atof(tmp[3]);
 	obj->height = ft_atof(tmp[4]);
 	obj->color = ft_atocolor(tmp[5]);
+	obj->color2 = obj->color;
+	if (tmp[6])
+		obj->color2 = ft_atocolor(tmp[6]);
 	scene->obj = add_front(scene->obj, obj);
 	
 	newobj = new_obj(3);
 	newobj->color = obj->color;
+	newobj->color2 = obj->color2;
 	newobj->diameter = obj->diameter;
 	newobj->vec = obj->vec;
 	newobj->coor = obj->coor;
@@ -41,6 +45,7 @@ void	cylinder_pars(char *line, t_scene *scene, int fd)
 	
 	newobj = new_obj(3);
 	newobj->color = obj->color;
+	newobj->color2 = obj->color2;
 	newobj->diameter = obj->diameter;
 	newobj->vec = obj->vec;
 	newobj->coor = add_c(obj->coor, prod_c(obj->height, obj->vec));

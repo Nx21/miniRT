@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:54:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 05:59:58 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/31 11:24:52 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,27 @@ t_color add_color(t_color color1, t_color color2)
 	if (res.g < 1)
 		res.g = 0;
 	res.b = ((color1.b & 0xff) + (color2.b & 0xff));
+	if(res.b < 1)
+		res.b = 0;
+	if (res.b >= 255)
+		res.b = 255;
+	return res;
+}
+t_color prod_color(t_color color1, t_color color2)
+{
+	t_color res;
+
+	res.r = ((color1.r & 0xff ) * (color2.r & 0xff)) /256;
+	if (res.r > 255)
+		res.r = 255; 
+	if (res.r < 1)
+		res.r = 0;
+	res.g = ((color1.g & 0xff) * (color2.g & 0xff)) /256;
+	if (res.g > 255)
+		res.g = 255;
+	if (res.g < 1)
+		res.g = 0;
+	res.b = ((color1.b & 0xff) * (color2.b & 0xff)) /256;
 	if(res.b < 1)
 		res.b = 0;
 	if (res.b >= 255)
@@ -236,7 +257,7 @@ int	pixel_color(t_scene scene, int i, int j)
 		if(res && !is_intersected(scene, l->light_co, res->point))
 		{
 			// color = (color_degree(res->color, fabs(dot_prod_c(norm_c(sub_c(l->light_co, res->point)), res->normal))));
-			color = add_color(color, (add_color(color_degree(res->color, l->light_b * fabs(dot_prod_c(norm_c(sub_c(l->light_co, res->point)), res->normal)))
+			color = add_color(color, (add_color(prod_color(l->light_color, color_degree(res->color, l->light_b * fabs(dot_prod_c(norm_c(sub_c(l->light_co, res->point)), res->normal))))
 				,color_degree(l->light_color, l->light_b * is_light(res, l, scene.v_cam[i][j])))));
 		}
 		l = l->next;

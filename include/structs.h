@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 05:54:00 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/31 11:15:21 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ typedef	struct s_coordinates
 	double	z;
 }	t_coordinates;
 
+typedef	struct s_ref
+{
+	t_coordinates	i;
+	t_coordinates	j;
+	t_coordinates	k;
+}	t_ref;
+
 typedef	struct s_color
 {
 	int	tr;
@@ -43,6 +50,7 @@ typedef struct s_obj
 	int				type;
 	t_coordinates	coor;
 	t_color			color;
+	t_color			color2;
 	t_coordinates	vec;
 	double			diameter;
 	double			height;
@@ -65,8 +73,6 @@ typedef struct s_scene
 	t_coordinates	**v_cam;
 	t_coordinates	cam_co;
 	t_coordinates	cam_vec_x;
-	t_coordinates	cam_vec_y;
-	t_coordinates	cam_vec_z;
 	double			fov;
 	t_light			*light;
 	t_obj			*obj;

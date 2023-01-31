@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 22:21:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 05:53:28 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/31 11:16:24 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,33 @@ t_point *creat_point_cylindre(t_coordinates p, t_coordinates c, t_coordinates v)
 t_point	*get_point_cylindre(t_quad_eq parm, t_obj *obj, t_coordinates v)
 {
 	double m;
-	t_point *p;
+	t_point *point;
 
 	m = dot_prod_c(v, obj->vec) * parm.r1 - dot_prod_c(obj->coor, obj->vec);
 	if (m >= 0 && m <= obj->height)
 	{
-		p = creat_point_cylindre(prod_c(parm.r1, v), obj->coor, prod_c(m, obj->vec));
-		p->color = obj->color;
-		p->distance = parm.r1;
-		return p;
+		point = creat_point_cylindre(prod_c(parm.r1, v), obj->coor, prod_c(m, obj->vec));
+		{
+			int res =0, res2 = 0;
+			t_ref	ref;
+			res = round(dot_prod_c(point->point, obj->vec) / 5);
+			// x = point->normal;
+			// res = atan(x.z/x.x) * 10 / M_PI;
+			ref = creat_ref(obj->vec);
+			t_coordinates x = prod_c(dot_prod_c(ref.i, point->normal),  ref.i);
+			// t_coordinates y = prod_c(dot_prod_c(make_coor(0,0,1), point->normal),  make_coor(0,0,1));
+			x = norm_c(sub_c(point->normal, x));
+			// y = norm_c(sub_c(point->normal, y));
+			// y = point->normal;
+			
+			res2 = round(atan2(dot_prod_c(ref.j, x), dot_prod_c(ref.k, x)) * 12 / M_PI);
+			if ((int)(res + res2) % 2 == 0)
+				point->color = obj->color;
+			else
+				point->color = obj->color2;
+		}
+		point->distance = parm.r1;
+		return point;
 	}
 	return NULL;
 // 	else if (m < 0)
