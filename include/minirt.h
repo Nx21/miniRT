@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:17:34 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/31 10:50:01 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/01/31 12:54:20 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_coordinates	add_c(t_coordinates v, t_coordinates u);
 t_coordinates	cross_prod_c(t_coordinates v, t_coordinates u);
 double			dot_prod_c(t_coordinates v, t_coordinates u);
 t_ref			creat_ref(t_coordinates vec);
-
+t_color 		color_degree(t_color color, double d);
 //operation
 t_quad_eq    sd_equation(t_quad_eq parm);
 //intersection

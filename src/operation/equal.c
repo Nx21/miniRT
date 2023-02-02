@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 21:14:08 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/23 01:48:43 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/02 12:37:54 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int equal(double a, double b)
 {
-    return fabs(a - b) < EPSILON;
+    return fabs(a - b) < 1e-6;
 }
 
 int greater(double a, double b)

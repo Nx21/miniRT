@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 22:21:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/31 11:16:24 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/01 11:51:53 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_point *creat_point_cylindre(t_coordinates p, t_coordinates c, t_coordinates v)
 	point = (t_point *)malloc(sizeof(t_point));
 	point->point = p;
 	point->normal = norm_c(sub_c(sub_c(p,c), v));
+	
 	return point;
 }
 

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:54:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/31 11:24:52 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/02 16:18:50 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ double is_intersection_circle(t_coordinates x, t_coordinates v, t_obj *obj)
 	x = sub_c(obj->coor, x);
 	r1 = dot_prod_c(v, obj->vec);
 	r2 = dot_prod_c(x,obj->vec);
-	if (r1 < EPSILON || r2 < EPSILON)
+	if (!r1 || !r2)
 		return 0;
 	res = r2/r1;
 	if (res < EPSILON)
@@ -200,8 +200,8 @@ double is_light(t_point *p, t_light *l, t_coordinates v)
 	t_coordinates vlight = norm_c(sub_c(l->light_co, p->point));
 	 
 	// if((dot_prod_c(vprinm, vlight)) > 0.9)
-	return (pow(dot_prod_c(vprinm, vlight), 123));
-	// return 0;
+	return 5 * dot_prod_c(vprinm, vlight)/sqrt(dot_prod_c(sub_c(l->light_co, p->point),sub_c(l->light_co, p->point)));
+	return 0;
 }
 
 double is_light2(t_point *p, t_light *l, t_coordinates v)
@@ -210,7 +210,7 @@ double is_light2(t_point *p, t_light *l, t_coordinates v)
 	 
 	// if((dot_prod_c(vprinm, vlight)) > 0.9)
 	if (dot_prod_c(l->light_co, v) < dot_prod_c(p->point, v))
-		return (pow(dot_prod_c(norm_c(l->light_co), v), 5));
+		return (pow(dot_prod_c(norm_c(l->light_co), v),125));
 	return 0;
 }
 
@@ -257,8 +257,8 @@ int	pixel_color(t_scene scene, int i, int j)
 		if(res && !is_intersected(scene, l->light_co, res->point))
 		{
 			// color = (color_degree(res->color, fabs(dot_prod_c(norm_c(sub_c(l->light_co, res->point)), res->normal))));
-			color = add_color(color, (add_color(prod_color(l->light_color, color_degree(res->color, l->light_b * fabs(dot_prod_c(norm_c(sub_c(l->light_co, res->point)), res->normal))))
-				,color_degree(l->light_color, l->light_b * is_light(res, l, scene.v_cam[i][j])))));
+			color = add_color(color, (add_color(prod_color(l->light_color, color_degree(res->color, fabs(dot_prod_c(norm_c(sub_c(l->light_co, res->point)), res->normal))))
+				,color_degree(l->light_color,  is_light(res, l, scene.v_cam[i][j])))));
 		}
 		l = l->next;
 	}
