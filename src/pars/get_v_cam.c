@@ -28,7 +28,7 @@ void    get_v_cam(t_scene *scene)
 	{
 		for (j = 0; j < HEIGHT; j++)
 		{
-			scene->v_cam[i][j] = norm_c(add_c(ref.i, add_c(prod_c(sin(((double)(i - WIDTH/2) * angtopix)), ref.j),prod_c(sin((double)(HEIGHT/2 - j) * angtopix), ref.k))));
+			scene->v_cam[i][j] = norm_c(add_c(ref.i, add_c(prod_c(sin(((double)(i - (WIDTH)/2) * angtopix)), ref.j),prod_c(sin((double)(HEIGHT/2 - j) * angtopix), ref.k))));
 		}
 	}
 }

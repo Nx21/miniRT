@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/02 11:18:50 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/04 10:20:03 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define STRUCTS_H
 
 # define EPSILON 1e-6
-# define WIDTH 1200
-# define HEIGHT	1200
+# define WIDTH 720
+# define HEIGHT	720
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -44,6 +44,20 @@ typedef	struct s_color
 }	t_color;
 
 
+typedef struct	s_data
+{
+	void	*img;
+	char	*addr;
+	int		*addr_int;
+	int		bits_per_pixel;
+	void	*mlx;
+	void	*mlx_win;
+	int		line_length;
+	int		endian;
+	int 	width;
+	int		height;
+}				t_data;
+
 typedef struct s_obj
 {
 	int				id;
@@ -54,8 +68,10 @@ typedef struct s_obj
 	t_coordinates	vec;
 	double			diameter;
 	double			height;
+	t_data			img;
 	struct s_obj	*next;
 }	t_obj;
+
 
 typedef struct s_light
 {
@@ -64,6 +80,7 @@ typedef struct s_light
 	t_color			light_color;
 	struct s_light			*next;
 } t_light;
+
 
 
 typedef struct s_scene
@@ -76,17 +93,9 @@ typedef struct s_scene
 	double			fov;
 	t_light			*light;
 	t_obj			*obj;
+	t_data			img;
 }	t_scene;
 
-typedef struct	s_data
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	t_scene	scene;
-}				t_data;
 
 typedef struct s_point
 {

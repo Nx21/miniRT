@@ -5,6 +5,7 @@
         "vector": "cpp",
         "algorithm": "c",
         "__locale": "c",
-        "minirt.h": "c"
+        "minirt.h": "c",
+        "ios": "c"
     }
 }

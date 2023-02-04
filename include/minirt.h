@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:17:34 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/31 12:54:20 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/04 16:23:09 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,15 @@ t_color 		color_degree(t_color color, double d);
 //operation
 t_quad_eq    sd_equation(t_quad_eq parm);
 //intersection
-int	    pixel_color(t_scene scene, int i, int j);
+t_color pixel_color(t_scene scene, int i, int j);
 t_point	*intersection_cylindre(t_coordinates v, t_obj *obj);
 t_point	*intersection_plan(t_coordinates v ,t_obj *obj);
 t_point	*intersection_sphere(t_coordinates v, t_obj *obj);
 t_point	*intersection_circle(t_coordinates v, t_obj *obj);
 // tmp
 void printc(t_coordinates c);
-
+t_color add_color(t_color color1, t_color color2);
+double magnitude(t_coordinates v);
+t_color color_degree(t_color color, double d);
+void    get_img(char *file, t_scene *scene, t_obj *obj);
 #endif

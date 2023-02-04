@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 08:51:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/01 15:47:11 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/04 17:36:24 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,7 @@ int main(int argc, char const *argv[])
 {
 	t_scene	scene;
 	int		fd;
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
+
 
 	if (argc != 2)
 		return 1;
@@ -94,20 +92,19 @@ int main(int argc, char const *argv[])
 	pars(&scene, fd);
 	get_v_cam(&scene);
 	change_referance(&scene);
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, WIDTH, HEIGHT, "miniRT");
-	img.img = mlx_new_image(mlx, WIDTH, HEIGHT);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-	for (size_t i = 0; i < WIDTH; i++)
+	scene.img.mlx = mlx_init();
+	scene.img.mlx_win = mlx_new_window(scene.img.mlx, WIDTH, HEIGHT, "miniRT");
+	scene.img.img = mlx_new_image(scene.img.mlx, WIDTH, HEIGHT);
+	scene.img.addr = mlx_get_data_addr(scene.img.img, &scene.img.bits_per_pixel, &scene.img.line_length,
+								&scene.img.endian);
+	for (int i = 0; i < WIDTH; i++)
 	{
-		for (size_t j = 0; j < HEIGHT; j++)
+		for (int j = 0; j < HEIGHT; j++)
 		{
-			my_mlx_pixel_put(&img, i, j, pixel_color(scene, i, j));
-			// pixel_color(scene, i, j);
+			my_mlx_pixel_put(&scene.img, i, j, ft_colortoi(pixel_color(scene, i, j)));
 		}
 	}
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	mlx_put_image_to_window(scene.img.mlx, scene.img.mlx_win, scene.img.img, 0, 0);
+	mlx_loop(scene.img.mlx);
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:41:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/30 05:58:20 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/03 14:07:43 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_color	ft_itocolor(int color)
 {
 	t_color	res;
 	
-	res.tr = (color >> 24) & 256;
+	res.tr = (color >> 24) % 256;
 	res.r = (color >> 16) % 256;
 	res.g = (color >> 8) % 256;
 	res.b = (color) % 256;
@@ -41,5 +41,17 @@ t_color	ft_itocolor(int color)
 
 int	ft_colortoi(t_color color)
 {
+	if (color.r > 255)
+		color.r = 255; 
+	if (color.r < 1)
+		color.r = 0;
+	if (color.g > 255)
+		color.g = 255;
+	if (color.g < 1)
+		color.g = 0;
+	if(color.b < 1)
+		color.b = 0;
+	if (color.b >= 255)
+		color.b = 255;
 	return  (((int)color.r ) << 16) + (((int)color.g ) << 8) + ((int)color.b);
 }

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 22:24:59 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/02 12:15:37 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/04 15:42:19 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ t_quad_eq    sd_equation(t_quad_eq parm)
 	parm.r2 = (-parm.b + sqrt(parm.delta)) / (2 * parm.a);
     if ((parm.r1 > parm.r2 || parm.r1 <= 0) && parm.r2 > 0)
         ft_fswap(&parm.r1, &parm.r2);
-    // if(parm.r1 < 0)
-    //     parm.delta = -1;
-    
+    if(parm.r1 < 0)
+        parm.delta = -1;
     return parm;
 }

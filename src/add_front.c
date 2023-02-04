@@ -16,10 +16,10 @@ t_obj *add_front(t_obj *head, t_obj *obj)
 {
 	if (!head)
 	{
-		obj->id = 0;
+		// obj->id = 0;
 		return obj;
 	}
-	obj->id = head->id + 1;
+	// obj->id = head->id + 1;
 	obj->next = head;
 	return obj;
 }
@@ -33,5 +33,6 @@ t_obj	*new_obj(int type)
 		exit(1);
 	obj->type = type;
 	obj->next = NULL;
+	obj->id = 0;
 	return obj;
 }

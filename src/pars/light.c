@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:05:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/01 15:06:17 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/04 16:40:18 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	light_pars(char *line, t_scene *scene, int fd)
 
 	
 	tmp = ft_split(line, ' ');
-	if (ft_lstsize(tmp) != 4 || ft_strcmp(tmp[0], "l"))
+	if (ft_lstsize(tmp) != 4 || ft_strcmp(tmp[0], "L"))
 		exit(1);
 	light = new_light(scene->light);
 	light->light_co = ft_atoc(tmp[1]);
