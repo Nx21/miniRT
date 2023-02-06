@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:38:22 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/06 14:56:38 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/06 18:42:35 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ t_point *creat_plane_point(t_obj *obj, t_coordinates v, double t)
 		int a = (((int)(res * 10) % obj->img.height) + obj->img.height)% obj->img.height;
 		int b = (((int)(res2 * 10) % obj->img.width) + obj->img.width)% obj->img.width;
 		point->color = ft_itocolor(obj->img.addr_int[(a * obj->img.width + b)]);
-		point->normal = norm_c(add_c(point->normal, prod_c(-(round(res ) - res) * 2+ (double)(rand()%110 - 50)/1000 ,ref.j)));
-		point->normal = norm_c(add_c(point->normal, prod_c(-(round(res2 ) - res2 ) * 2+ (double)(rand()%110 - 50)/1000,ref.k)));
+		point->normal = norm_c(add_c(point->normal, prod_c(-(round(res ) - res) / 3+ (double)(rand()%110 - 50)/1000 ,ref.j)));
+		point->normal = norm_c(add_c(point->normal, prod_c(-(round(res2 ) - res2 ) / 3+ (double)(rand()%110 - 50)/1000,ref.k)));
 		// point->point = prod_c(t -  fabs(round(res/30) - res/30) - fabs(round(res2/30) - res2/30), v);
 		
 	}

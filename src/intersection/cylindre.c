@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 22:21:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/06 14:49:39 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/06 18:03:44 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ t_point	*get_point_cylindre(t_quad_eq parm, t_obj *obj, t_coordinates v)
 			res2 = (1 - atan2(dot_prod_c(ref.j, x), dot_prod_c(ref.k, x))/M_PI) * obj->img.width;
 			point->color = ft_itocolor(obj->img.addr_int[(int)(res) * obj->img.width + (int)(res2)]);
 			double res3 = 0, res4 = 0;
-			res3 = ((dot_prod_c(point->point, obj->vec)) * 100 / obj->height);
-			res4 = (1 + atan2(dot_prod_c(ref.k, x), dot_prod_c(ref.j, x))/M_PI *100);
-			point->normal = norm_c(add_c(point->normal, prod_c((round(res3) - res3) + (double)(rand()%110 - 50)/1000 ,ref.j)));
-			point->normal = norm_c(add_c(point->normal, prod_c((round(res4) - res4)+(double)(rand()%110 - 50)/1000,ref.k)));
+			res3 = ((dot_prod_c(point->point, obj->vec)) * 10 / obj->height);
+			res4 = (1 + atan2(dot_prod_c(ref.k, x), dot_prod_c(ref.j, x))/M_PI *10);
+			point->normal = norm_c(add_c(point->normal, prod_c((round(res3) - res3)*2 + (double)(rand()%110 - 50)/1000 ,ref.j)));
+			point->normal = norm_c(add_c(point->normal, prod_c((round(res4) - res4)*2+(double)(rand()%110 - 50)/1000,ref.k)));
 		
 			point->point = prod_c(parm.r1 -  fabs(round(res3) - res3) - fabs(round(res4) - res4), v);
 			// if ((int)(res + res2) % 2 == 0)
