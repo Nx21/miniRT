@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:47:56 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/04 19:02:18 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/05 19:14:55 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,12 @@ t_point *creat_sphere_point(t_obj *obj, t_coordinates v, double t)
 	y = norm_c(sub_c(point->normal, y));
 	if (obj->id)
 	{
-		res = (-(point->point.z - obj->coor.z)/(obj->diameter) + 1) * obj->img.height/2;
-	
-		
+		res = (((point->point.z - obj->coor.z)/(obj->diameter)) + 1) * obj->img.height/2;
 		res2 =  (1 + (atan2(y.x, y.y)/ (M_PI))) * obj->img.width/2;
-		point->color = ft_itocolor(obj->img.addr_int[((int)round(res)) * obj->img.width + (int)round(res2)]);
+		point->color = ft_itocolor(obj->img.addr_int[(int)(res) * obj->img.width + (int)(res2)]);
 		// if ((int)(round(res) + round(res2)) % 2 == 0)
 		// 	point->color = ft_itocolor( 0xffff);
 		// else
-		// 	point->color = ft_itocolor( 0xffffff);
 		res3 = (obj->coor.y - point->point.y);
 		res4 = -(obj->coor.z - point->point.z);
 		point->normal = norm_c(add_c(point->normal, prod_c((round(res3) - res3) + (double)(rand()%310 - 150)/1000 ,ref.j)));

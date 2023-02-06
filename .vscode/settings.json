@@ -6,6 +6,10 @@
         "algorithm": "c",
         "__locale": "c",
         "minirt.h": "c",
-        "ios": "c"
+        "ios": "c",
+        "__bit_reference": "c",
+        "iterator": "c",
+        "sstream": "c",
+        "locale": "c"
     }
 }

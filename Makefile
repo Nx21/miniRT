@@ -6,7 +6,7 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/17 17:15:03 by nhanafi           #+#    #+#              #
-#    Updated: 2023/02/03 11:55:42 by nhanafi          ###   ########.fr        #
+#    Updated: 2023/02/05 18:24:28 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ FILES = main add_front utils/ft_atoi utils/ft_isalnum utils/ft_putstr_fd utils/f
 	intersection/sphere intersection/plane intersection/cylindre intersection/get_pixel intersection/circle
 	
 
-CC = cc -Wall -Wextra -Werror
+CC = cc -Wall -Wextra -Werror -fsanitize=address -g
 
 NAME = minirt
 

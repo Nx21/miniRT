@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 10:43:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/04 17:30:21 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/05 13:39:54 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@ t_ref	creat_ref(t_coordinates vec)
 	t_ref	ref;
 
 	ref.i = norm_c(vec);
-	ref.j = make_coor(1,1,0);
-	if(equal_coor(ref.i, make_coor(0,1,0)))
-		ref.j = make_coor(0,0,1);
+	ref.j = norm_c(make_coor(ref.i.z,-ref.i.x,ref.i.y));
+	// ref.k = norm_c(make_coor(ref.j.z,-ref.j.x,ref.j.y));
+	// if(equal_coor(ref.i, make_coor(0,1,0)) || equal_coor(ref.i, make_coor(0,-1,0)))
+	// 	ref.j = make_coor(-1,1,0);
 	ref.k = norm_c(cross_prod_c(ref.i, ref.j));
+	// // if(equal(magnitude(ref.k),0))
+	// // 	exit(0);
 	ref.j = norm_c(cross_prod_c(ref.k, ref.i));
 	return ref;
 }

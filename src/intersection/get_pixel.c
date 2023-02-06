@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:54:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/04 17:35:51 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/05 10:39:28 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,10 @@ int is_intersected(t_scene scene, t_coordinates l, t_coordinates x)
 		else if (obj->type == 1)
 			tmp = is_intersection_plan(x, v, obj);
 		else if (obj->type == 2)
+		{
 			tmp = is_intersection_cylindre(x, v, obj);
+			// exit(0);
+		}
 		else if (obj->type == 3)
 			tmp = is_intersection_circle(x, v, obj);
 			
