@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:54:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/05 10:39:28 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/07 19:21:53 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,11 +225,13 @@ t_color	pixel_color(t_scene scene, int i, int j)
 		if(obj->type == 0)
 			tmp = intersection_sphere(scene.v_cam[i][j], obj);
 		else if (obj->type == 1)
-			tmp = intersection_plan(scene.v_cam[i][j], obj);
+			tmp = intersection_infinit_plan(scene.v_cam[i][j], obj);
 		else if (obj->type == 2)
 			tmp = intersection_cylindre(scene.v_cam[i][j], obj);
 		else if (obj->type == 3)
 			tmp = intersection_circle(scene.v_cam[i][j], obj);
+		else if (obj->type == 4)
+			tmp = intersection_hyperbol(scene.v_cam[i][j], obj);
 		else
 			tmp = NULL;
 		if (tmp && (!res || res->distance > tmp->distance))

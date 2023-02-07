@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylindre.c                                         :+:      :+:    :+:   */
+/*   hyperbol.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/29 05:04:42 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/07 14:48:53 by nhanafi          ###   ########.fr       */
+/*   Created: 2023/02/07 16:28:49 by nhanafi           #+#    #+#             */
+/*   Updated: 2023/02/07 21:36:39 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-
-
-
-void	cylinder_pars(char *line, t_scene *scene, int fd)
+void	cube_pars(char *line, t_scene *scene, int fd)
 {
 	char	**tmp;
 	t_obj	*obj;
-	t_obj	*newobj;
 
+    puts("||");
 	tmp = ft_split(line, ' ');
-	if ((ft_lstsize(tmp) != 6 && ft_lstsize(tmp) != 7) || ft_strcmp(tmp[0], "cy"))
+	if ((ft_lstsize(tmp) != 6 && ft_lstsize(tmp) != 7) || ft_strcmp(tmp[0], "hb"))
 		exit(1);
-	obj = new_obj(2);
+	obj = new_obj(4);
 	obj->coor = ft_atoc(tmp[1]);
 	obj->vec = norm_c(ft_atoc(tmp[2]));
 	obj->diameter = ft_atof(tmp[3]);
@@ -42,29 +39,12 @@ void	cylinder_pars(char *line, t_scene *scene, int fd)
 			obj->color2 = ft_atocolor(tmp[6]);
 		}
 	}
+    obj->ref = creat_ref(obj->vec);
 	scene->obj = add_front(scene->obj, obj);
+
+
 	
-	newobj = new_obj(3);
-	newobj->img = obj->img;
-	newobj->id = obj->id;
-	newobj->color = obj->color;
-	newobj->color2 = obj->color2;
-	newobj->diameter = obj->diameter;
-	newobj->vec = obj->vec;
-	newobj->coor = obj->coor;
-	scene->obj = add_front(scene->obj, newobj);
-	
-	newobj = new_obj(3);
-	newobj->img = obj->img;
-	newobj->id = obj->id;
-	newobj->color = obj->color;
-	newobj->color2 = obj->color2;
-	newobj->diameter = obj->diameter;
-	newobj->vec = obj->vec;
-	newobj->coor = add_c(obj->coor, prod_c(obj->height, obj->vec));
-	scene->obj = add_front(scene->obj, newobj);
-	
-	free(line);
+    free(line);
 	free_list(tmp);
 	pars(scene, fd);
 }

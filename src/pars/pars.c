@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:05:30 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/04 16:40:26 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/07 19:19:07 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ void	pars(t_scene *scene, int fd)
 		return (plane_pars(line, scene, fd));
 	if (start_with(line, "cy"))
 		return (cylinder_pars(line, scene, fd));
+	if (start_with(line, "hb"))
+		return (hyperbol_pars(line, scene, fd));
 	exit(1);
 }

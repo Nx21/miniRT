@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/04 10:20:03 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/07 19:14:43 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_obj
 	double			diameter;
 	double			height;
 	t_data			img;
+	t_ref			ref;
 	struct s_obj	*next;
 }	t_obj;
 

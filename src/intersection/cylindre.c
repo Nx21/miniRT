@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 22:21:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/06 18:03:44 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/07 16:18:46 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,6 @@ t_point *creat_point_cylindre(t_coordinates p, t_coordinates c, t_coordinates v)
 	return point;
 }
 
-// t_point *intersection_cylindre_down(t_coordinates v, t_obj *obj)
-// {
-// 	t_obj tmp;
-
-// 	tmp = *obj;
-// 	tmp.vec = sub_c(make_coor(0,0,0), tmp.vec);
-// 	return intersection_plan(v, &tmp);
-// }
-// t_point *intersection_cylindre_up(t_coordinates v, t_obj *obj)
-// {
-// 	t_obj tmp;
-
-// 	tmp = *obj;
-// 	tmp.coor = add_c(tmp.coor,prod_c(tmp.height, tmp.vec));
-// 	return intersection_plan(v, &tmp);
-// }
 
 t_point	*get_point_cylindre(t_quad_eq parm, t_obj *obj, t_coordinates v)
 {
@@ -54,26 +38,27 @@ t_point	*get_point_cylindre(t_quad_eq parm, t_obj *obj, t_coordinates v)
 		{
 			int res =0, res2 = 0;
 			t_ref	ref;
-			res = ((dot_prod_c(point->point, obj->vec)/obj->height) * obj->img.height/2);
+			res = ((fabs(dot_prod_c(sub_c(point->point, obj->coor), obj->vec))/obj->height) * obj->img.height/2);
 			// x = point->normal;
 			// res = atan(x.z/x.x) * 10 / M_PI;
 			ref = creat_ref(obj->vec);
-			t_coordinates x = prod_c(dot_prod_c(ref.i, point->normal),  ref.i);
+			t_coordinates x = prod_c(dot_prod_c(ref.i, point->normal), ref.i);
 			// printc(point->normal);
 			x = norm_c(sub_c(point->normal, x));
 			res2 = (1 - atan2(dot_prod_c(ref.j, x), dot_prod_c(ref.k, x))/M_PI) * obj->img.width;
 			point->color = ft_itocolor(obj->img.addr_int[(int)(res) * obj->img.width + (int)(res2)]);
 			double res3 = 0, res4 = 0;
-			res3 = ((dot_prod_c(point->point, obj->vec)) * 10 / obj->height);
-			res4 = (1 + atan2(dot_prod_c(ref.k, x), dot_prod_c(ref.j, x))/M_PI *10);
-			point->normal = norm_c(add_c(point->normal, prod_c((round(res3) - res3)*2 + (double)(rand()%110 - 50)/1000 ,ref.j)));
-			point->normal = norm_c(add_c(point->normal, prod_c((round(res4) - res4)*2+(double)(rand()%110 - 50)/1000,ref.k)));
+			res3 = ((fabs(dot_prod_c(sub_c(point->point, obj->coor), obj->vec))));;
+			x = sub_c(obj->coor, point->point);
+			res4 = (1 + atan2(dot_prod_c(ref.k, x), dot_prod_c(ref.j, x))/M_PI) * obj->diameter * 5;
+			point->normal = norm_c(add_c(point->normal, prod_c((round(res3) - res3) + (double)(rand()%110 - 50)/1000 ,ref.j)));
+			point->normal = norm_c(add_c(point->normal, prod_c((round(res4) - res4) +(double)(rand()%110 - 50)/1000,ref.k)));
 		
 			point->point = prod_c(parm.r1 -  fabs(round(res3) - res3) - fabs(round(res4) - res4), v);
-			// if ((int)(res + res2) % 2 == 0)
-				// point->color = obj->color;
-			// else
+			// if ((int)(round(res4) + round(res3)) % 2 == 0)
 			// 	point->color = obj->color2;
+			// else
+			// 	point->color = obj->color;
 		}
 		point->distance = parm.r1;
 		return point;

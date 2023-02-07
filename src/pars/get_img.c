@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 11:54:58 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/06 19:08:11 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/07 11:10:08 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void    get_img(char *file, t_scene *scene, t_obj *obj)
 	obj->id = 1;
 	str = ft_split(file, ':');
 	obj->img.mlx = mlx_init();
-	if (ft_lstsize(str) != )
+	if (ft_lstsize(str) != 3)
 		exit(1);
 	int fd = open(str[1], O_RDWR);
 	puts(str[1]);
