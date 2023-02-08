@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:05:30 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 01:07:30 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:56:22 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	pars(t_scene *scene, int fd)
 	line = ft_strtrim(line, "\n \t");
 	if (!line)
 		return ;
-	if (ft_strcmp(line, "") == 0)
+	if (ft_strcmp(line, "") == 0 || start_with(line, "#"))
 		return (free(line), pars(scene, fd));
 	if (start_with(line, "A"))
 		return (ambient_pars(line, scene, fd));
@@ -41,7 +41,7 @@ void	pars(t_scene *scene, int fd)
 		return (plane_pars(line, scene, fd));
 	if (start_with(line, "cy"))
 		return (cylinder_pars(line, scene, fd));
-	if (start_with(line, "hb"))
+	if (start_with(line, "cb"))
 		return (cube_pars(line, scene, fd));
 	exit(1);
 }

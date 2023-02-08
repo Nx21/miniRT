@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:17:34 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 01:07:44 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/08 17:28:10 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	light_pars(char *line, t_scene *scene, int fd);
 void	cylinder_pars(char *line, t_scene *scene, int fd);
 void	camera_pars(char *line, t_scene *scene, int fd);
 void	ambient_pars(char *line, t_scene *scene, int fd);
+void	cube_pars(char *line, t_scene *scene, int fd);
 double  dist_sq(t_coordinates a, t_coordinates b);
 int		equal_coor(t_coordinates a, t_coordinates b);
 int		greater(double a, double b);
@@ -56,7 +57,7 @@ t_point	*intersection_plan(t_coordinates v ,t_obj *obj);
 t_point	*intersection_sphere(t_coordinates v, t_obj *obj);
 t_point	*intersection_circle(t_coordinates v, t_obj *obj);
 t_point	*intersection_infinit_plan(t_coordinates v ,t_obj *obj);
-t_point	*intersection_hyperbol(t_coordinates v, t_obj *obj);
+t_point	*intersection_square(t_coordinates v, t_obj *obj);
 void	cube_pars(char *line, t_scene *scene, int fd);
 // tmp
 void printc(t_coordinates c);

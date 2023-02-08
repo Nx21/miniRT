@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 05:37:01 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/08 17:19:11 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ typedef struct s_scene
 	t_obj			*obj;
 	t_data			img;
 	int				rep;
-	pthread_mutex_t mutex;
 }	t_scene;
 
 

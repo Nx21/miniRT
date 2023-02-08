@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 00:36:01 by orekabe           #+#    #+#             */
-/*   Updated: 2023/02/08 05:37:24 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/08 17:11:14 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,62 +61,46 @@ void    *routine(void *add)
     t_thread    *thread;
 
     thread = add;
-    for (int i = 0; i < HEIGHT; i++)
+    for (int i = 0; i < WIDTH; i++)
 	{
+		// printf("%d\t", thread->id);
 		for (int j = thread->start; j < thread->end; j++)
 		{
-            pthread_mutex_lock(&thread->scene->mutex);
             int c = ft_colortoi(pixel_color(*thread->scene, i, j));
 			my_mlx_pixel_put(&thread->scene->img, i, j, c);
-            pthread_mutex_unlock(&thread->scene->mutex);
 		}
 	}
-    pthread_mutex_lock(&thread->scene->mutex);
-    thread->scene->rep++;
-    pthread_mutex_unlock(&thread->scene->mutex);
     return (NULL);
-}
-
-void    create_threads(t_thread *threads)
-{
-    int i;
-
-    i = 0;
-    while(i < 8)
-    {
-        if (pthread_create(&threads[i].thread, NULL, &routine, threads + i))
-            return ;
-        i++;
-    }
 }
 
 void    render(t_scene *scene)
 {
     t_thread    *threads;
+	int n = 6;
     int i;
 
     i = 0;
-    scene->rep = 0;
-    threads = malloc(sizeof(t_thread) * 8);
+    threads = malloc(sizeof(t_thread) * n);
     if (!threads)
         return ;
-    if (pthread_mutex_init(&scene->mutex, NULL))
-        return ;
-    while (i < 8)
+    while (i < n)
     {
         threads[i].scene = scene;
-        threads[i].id = i + 1;
-        threads[i].start = (threads[i].id * (HEIGHT / 8)) - (HEIGHT / 8);
-        threads[i].end = (threads[i].id * (HEIGHT) / 8);
+        threads[i].id = i;
+        threads[i].start = ((i * HEIGHT) / n);
+        threads[i].end = (((i + 1)* HEIGHT) / n);
+		if (pthread_create(&threads[i].thread, NULL, &routine, threads + i))
+            return ;
         i++;
     }
-    create_threads(threads);
+    // create_threads(threads);
     i = 0;
-    while (1)
-    {
-        if (scene->rep > 7)
-            break;
-    }
+    while (i < n)
+	{
+		if (pthread_join(threads[i].thread , NULL) != 0)
+			return ;
+		i++;
+	}
     
 }
 
@@ -197,8 +181,10 @@ int main(int argc, char const *argv[])
 	scene.img.addr = mlx_get_data_addr(scene.img.img, &scene.img.bits_per_pixel, &scene.img.line_length,
 								&scene.img.endian);
     render(&scene);
+	// exit(0);
 	mlx_put_image_to_window(scene.img.mlx, scene.img.mlx_win, scene.img.img, 0, 0);
 	ft_hook(&scene);
+	
     mlx_loop(scene.img.mlx);
 	return 0;
 }

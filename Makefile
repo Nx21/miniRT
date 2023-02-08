@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+         #
+#    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/17 17:15:03 by nhanafi           #+#    #+#              #
-#    Updated: 2023/02/08 04:46:34 by orekabe          ###   ########.fr        #
+#    Updated: 2023/02/08 17:32:12 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ FILES = add_front utils/ft_atoi utils/ft_isalnum utils/ft_putstr_fd utils/ft_str
 	utils/ft_strlen utils/ft_substr utils/end_with utils/ft_strtrim utils/ft_atof utils/ft_strrchr\
 	utils/ft_atoc utils/ft_count utils/ft_lstsize utils/ft_atocolor utils/ft_fswap\
 	get_next_line/get_next_line get_next_line/get_next_line_utils\
-	pars/ambient pars/camera pars/cylindre pars/light pars/pars pars/plane pars/sphere pars/get_v_cam pars/get_img pars/hyperbol\
+	pars/ambient pars/camera pars/cylindre pars/light pars/pars pars/plane pars/sphere pars/get_v_cam pars/get_img pars/cube\
 	operation/equal operation/vector operation/vector_operation operation/sd_equation operation/creat_referance\
-	intersection/sphere intersection/plane intersection/cylindre intersection/get_pixel intersection/circle intersection/hyperbol
+	intersection/sphere intersection/plane intersection/cylindre intersection/get_pixel intersection/circle intersection/cube
 	
 MAIN = main $(FILES)
 
@@ -27,6 +27,7 @@ BONUS = main_bonus $(FILES)
 CC = cc -Wall -Wextra -Werror -fsanitize=address -g
 
 NAME = miniRT
+NAME_BONUS = miniR_bonus
 
 INC = include
 
@@ -43,17 +44,19 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)  -lmlx -framework OpenGL -framework AppKit
 
+
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJ_B)
+	$(CC) $(OBJ_B) -o $(NAME_BONUS)  -lmlx -framework OpenGL -framework AppKit
+
 $(ODIR)/%.o: src/%.c $(HEADER)
 	mkdir -p $(@D)
 	$(CC) -I$(INC) -c $< -o $@
-
-bonus: $(OBJ_B)
-	$(CC) $(OBJ_B) -o $(NAME)  -lmlx -framework OpenGL -framework AppKit
-
 clean:
-	rm -rf $(ODIR) 
+	rm -rf $(ODIR)
 	
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(NAME_BONUS)
 	
 re: fclean all

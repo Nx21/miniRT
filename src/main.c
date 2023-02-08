@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 08:51:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 05:24:03 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/08 12:37:24 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ int main(int argc, char const *argv[])
 			my_mlx_pixel_put(&scene.img, i, j, ft_colortoi(pixel_color(scene, i, j)));
 		}
 	}
+	exit(0);
 	ft_hook(&scene);
 	mlx_put_image_to_window(scene.img.mlx, scene.img.mlx_win, scene.img.img, 0, 0);
 	mlx_loop(scene.img.mlx);

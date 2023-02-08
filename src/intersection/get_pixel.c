@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:54:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/07 19:21:53 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:58:19 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,29 @@ double is_intersection_plan(t_coordinates x, t_coordinates v, t_obj *obj)
 }
 
 
+double is_intersection_square(t_coordinates x, t_coordinates v, t_obj *obj)
+{
+	double res,r1,r2;
+	t_coordinates tmp;
+	t_coordinates y;
+
+	if(!obj)
+		return 0;
+	y = x;
+	x = sub_c(obj->coor, x);
+	r1 = dot_prod_c(v, obj->vec);
+	r2 = dot_prod_c(x,obj->vec);
+	if (!r1 || !r2)
+		return 0;
+	res = r2/r1;
+	if (res < EPSILON)
+		return 0;
+	tmp = sub_c(add_c(prod_c(res, v), y), obj->coor);
+	if (fabs(dot_prod_c(tmp, obj->ref.j)) > obj->diameter  || fabs(dot_prod_c(tmp, obj->ref.k)) > obj->diameter)
+		return (0);
+	return res;
+}
+
 double is_intersection_circle(t_coordinates x, t_coordinates v, t_obj *obj)
 {
 	double res,r1,r2;
@@ -162,6 +185,9 @@ double is_intersection_circle(t_coordinates x, t_coordinates v, t_obj *obj)
 	return res;
 }
 
+
+
+
 int is_intersected(t_scene scene, t_coordinates l, t_coordinates x)
 {
 	t_obj *obj;
@@ -182,13 +208,11 @@ int is_intersected(t_scene scene, t_coordinates l, t_coordinates x)
 		else if (obj->type == 1)
 			tmp = is_intersection_plan(x, v, obj);
 		else if (obj->type == 2)
-		{
 			tmp = is_intersection_cylindre(x, v, obj);
-			// exit(0);
-		}
 		else if (obj->type == 3)
 			tmp = is_intersection_circle(x, v, obj);
-			
+		else if (obj->type == 4)
+			tmp = is_intersection_square(x, v, obj);
 		if (tmp && tmp < maxdis)
 			return (1);
 		obj = obj->next;
@@ -231,7 +255,7 @@ t_color	pixel_color(t_scene scene, int i, int j)
 		else if (obj->type == 3)
 			tmp = intersection_circle(scene.v_cam[i][j], obj);
 		else if (obj->type == 4)
-			tmp = intersection_hyperbol(scene.v_cam[i][j], obj);
+			tmp = intersection_square(scene.v_cam[i][j], obj);
 		else
 			tmp = NULL;
 		if (tmp && (!res || res->distance > tmp->distance))
