@@ -3,14 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
+#    By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/17 17:15:03 by nhanafi           #+#    #+#              #
-#    Updated: 2023/02/07 18:47:22 by nhanafi          ###   ########.fr        #
+#    Updated: 2023/02/08 04:46:34 by orekabe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILES = main add_front utils/ft_atoi utils/ft_isalnum utils/ft_putstr_fd utils/ft_strdup\
+
+FILES = add_front utils/ft_atoi utils/ft_isalnum utils/ft_putstr_fd utils/ft_strdup\
 	utils/ft_strstr utils/instr utils/ft_calloc utils/ft_itoa utils/ft_memset utils/ft_split utils/ft_strcmp \
 	utils/ft_strlen utils/ft_substr utils/end_with utils/ft_strtrim utils/ft_atof utils/ft_strrchr\
 	utils/ft_atoc utils/ft_count utils/ft_lstsize utils/ft_atocolor utils/ft_fswap\
@@ -19,10 +20,13 @@ FILES = main add_front utils/ft_atoi utils/ft_isalnum utils/ft_putstr_fd utils/f
 	operation/equal operation/vector operation/vector_operation operation/sd_equation operation/creat_referance\
 	intersection/sphere intersection/plane intersection/cylindre intersection/get_pixel intersection/circle intersection/hyperbol
 	
+MAIN = main $(FILES)
+
+BONUS = main_bonus $(FILES)
 
 CC = cc -Wall -Wextra -Werror -fsanitize=address -g
 
-NAME = minirt
+NAME = miniRT
 
 INC = include
 
@@ -30,18 +34,21 @@ HEADER = include/minirt.h include/utils.h include/get_next_line.h include/struct
 
 ODIR = obj
 
-OBJ = $(addprefix $(ODIR)/, $(FILES:=.o))
+OBJ = $(addprefix $(ODIR)/, $(MAIN:=.o))
+
+OBJ_B = $(addprefix $(ODIR)/, $(BONUS:=.o))
 
 all: $(NAME)
 
-$(NAME): $(OBJ) 
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)  -lmlx -framework OpenGL -framework AppKit
 
 $(ODIR)/%.o: src/%.c $(HEADER)
 	mkdir -p $(@D)
 	$(CC) -I$(INC) -c $< -o $@
 
-bonus: all
+bonus: $(OBJ_B)
+	$(CC) $(OBJ_B) -o $(NAME)  -lmlx -framework OpenGL -framework AppKit
 
 clean:
 	rm -rf $(ODIR) 

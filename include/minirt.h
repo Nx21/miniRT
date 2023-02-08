@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:17:34 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/07 19:20:10 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/08 01:07:44 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_point	*intersection_sphere(t_coordinates v, t_obj *obj);
 t_point	*intersection_circle(t_coordinates v, t_obj *obj);
 t_point	*intersection_infinit_plan(t_coordinates v ,t_obj *obj);
 t_point	*intersection_hyperbol(t_coordinates v, t_obj *obj);
-void	hyperbol_pars(char *line, t_scene *scene, int fd);
+void	cube_pars(char *line, t_scene *scene, int fd);
 // tmp
 void printc(t_coordinates c);
 t_color add_color(t_color color1, t_color color2);

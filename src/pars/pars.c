@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:05:30 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/07 19:19:07 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/08 01:07:30 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ void	pars(t_scene *scene, int fd)
 	if (start_with(line, "cy"))
 		return (cylinder_pars(line, scene, fd));
 	if (start_with(line, "hb"))
-		return (hyperbol_pars(line, scene, fd));
+		return (cube_pars(line, scene, fd));
 	exit(1);
 }

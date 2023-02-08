@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/07 19:14:43 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/08 05:37:01 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
+#include <pthread.h>
 
 typedef	struct s_coordinates
 {
@@ -95,6 +96,8 @@ typedef struct s_scene
 	t_light			*light;
 	t_obj			*obj;
 	t_data			img;
+	int				rep;
+	pthread_mutex_t mutex;
 }	t_scene;
 
 
