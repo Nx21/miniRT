@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 16:28:49 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 23:34:00 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 03:11:41 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	swap_ref(t_ref	*ref, int direction)
 	int				i;
 
 	i = 1;
-	while(i < abs(direction))
+	while (i < abs(direction))
 	{
 		tmp = ref->i;
 		ref->i = ref->j;
@@ -34,14 +34,13 @@ void	swap_ref(t_ref	*ref, int direction)
 	}
 }
 
-
-void creat_square(t_obj *sq, t_scene *scene, int direction)
+void	creat_square(t_obj *sq, t_scene *scene, int direction)
 {
-	t_obj	*obj;
+	t_obj			*obj;
 	t_coordinates	tmp;
 
 	if (!direction)
-		return;
+		return ;
 	obj = new_obj(4);
 	*obj = *sq;
 	swap_ref(&obj->ref, direction);
@@ -50,7 +49,6 @@ void creat_square(t_obj *sq, t_scene *scene, int direction)
 	obj->coor = add_c(tmp, obj->coor);
 	scene->obj = add_front(scene->obj, obj);
 }
-
 
 void	cube_(char **tmp, t_obj *obj)
 {
@@ -71,7 +69,7 @@ void	cube_(char **tmp, t_obj *obj)
 			obj->color2 = ft_atocolor(tmp[5]);
 		}
 	}
-    obj->ref = creat_ref(obj->vec);
+	obj->ref = creat_ref(obj->vec);
 }
 
 void	cube_pars(char *line, t_scene *scene, int fd)
@@ -79,17 +77,18 @@ void	cube_pars(char *line, t_scene *scene, int fd)
 	int		i;
 	char	**tmp;
 	t_obj	*obj;
-	
+
 	tmp = ft_split(line, ' ');
-	if ((ft_lstsize(tmp) != 6 && ft_lstsize(tmp) != 5) || ft_strcmp(tmp[0], "cb"))
+	if ((ft_lstsize(tmp) != 6 && ft_lstsize(tmp) != 5)
+		|| ft_strcmp(tmp[0], "cb"))
 		exit(1);
 	obj = new_obj(4);
 	cube_(tmp, obj);
 	i = -3;
-	while(i < 4)
+	while (i < 4)
 		creat_square(obj, scene, i++);
 	free(obj);
-    free(line);
+	free(line);
 	free_list(tmp);
 	pars(scene, fd);
 }

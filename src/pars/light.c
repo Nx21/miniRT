@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:05:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 23:23:31 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 02:54:02 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 t_light	*new_light(t_light *next)
 {
-	t_light *light;
+	t_light	*light;
 
 	light = (t_light *) malloc(sizeof(t_light));
 	light->next = next;
 	return (light);
 }
 
-
 void	light_pars(char *line, t_scene *scene, int fd)
 {
-	char **tmp;
+	char	**tmp;
 	t_light	*light;
 
 	tmp = ft_split(line, ' ');
-	if (ft_lstsize(tmp) != 4 || (ft_strcmp(tmp[0], "L") && ft_strcmp(tmp[0], "l")))
+	if (ft_lstsize(tmp) != 4
+		|| (ft_strcmp(tmp[0], "L") && ft_strcmp(tmp[0], "l")))
 		exit(1);
 	light = new_light(scene->light);
 	light->light_co = ft_atoc(tmp[1]);

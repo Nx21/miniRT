@@ -3,42 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 23:15:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/27 05:36:45 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 02:43:37 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-
-
-void    check_float(char *str)
+void	check_float(char *str)
 {
 	int	i;
 
-	if (ft_strchr(str, '.') != ft_strrchr(str, '.') &&\
-	ft_strchr(str, 'e') != ft_strrchr(str, 'e') &&\
-	ft_strchr(str, 'e') < ft_strrchr(str, '.'))
+	if (ft_strchr(str, '.') != ft_strrchr(str, '.')
+		&& ft_strchr(str, 'e') != ft_strrchr(str, 'e')
+		&& ft_strchr(str, 'e') < ft_strrchr(str, '.'))
 		exit(1);
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if ((str[i] < '0' || str[i] > '9') \
-		&& str[i] != 'e' && str[i] != '.')
-			exit(1);
+			&& str[i] != 'e' && str[i] != '.')
+			exit (1);
 		i++;
 	}
 }
 
-double ft_atof(char *str)
+double	ft_atof(char *str)
 {
-	double value;
-	int sign;
-	int i = 0;
-	double scale;
-	
+	double	value;
+	int		sign;
+	int		i;
+	double	scale;
+
 	value = 0;
 	i = 0;
 	sign = 1 - 2 * (check_negative(str, &i) % 2);
@@ -52,8 +50,11 @@ double ft_atof(char *str)
 		i++;
 	scale = 1.0;
 	while (str[i] >= '0' && str[i] <= '9')
-		value += (str[i++] - '0') * (scale *= 0.1);
-	if (str[i] == 'e') 
+	{
+		scale *= 0.1;
+		value += (str[i++] - '0') * scale;
+	}
+	if (str[i] == 'e')
 		value *= pow(10, ft_atoi(str + i + 1));
-	return sign * value;
+	return (sign * value);
 }

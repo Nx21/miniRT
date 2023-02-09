@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pars.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:05:30 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 01:56:15 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 02:53:27 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
 
 void	pars(t_scene *scene, int fd)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 04:11:13 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/12/26 00:24:18 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 02:41:56 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	check_negative(char *str, int *i)
 	int	neg;
 
 	neg = 0;
-	while (str[*i] == ' ' || str[*i] == '\r' \
-		|| str[*i] == '\n' || str[*i] == '\v' \
+	while (str[*i] == ' ' || str[*i] == '\r'
+		|| str[*i] == '\n' || str[*i] == '\v'
 		|| str[*i] == '\f' || str[*i] == '\t')
 		*i += 1;
 	while (str[*i] == '-' || str[*i] == '+')
@@ -32,10 +32,10 @@ int	check_negative(char *str, int *i)
 
 void	check_int(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			exit(1);

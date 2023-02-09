@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 20:28:31 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 05:23:12 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,32 +20,31 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-#include <pthread.h>
+# include <pthread.h>
 
-typedef	struct s_coordinates
+typedef struct s_coordinates
 {
 	double	x;
 	double	y;
 	double	z;
-}	t_coordinates;
+}				t_coordinates;
 
-typedef	struct s_ref
+typedef struct s_ref
 {
 	t_coordinates	i;
 	t_coordinates	j;
 	t_coordinates	k;
-}	t_ref;
+}				t_ref;
 
-typedef	struct s_color
+typedef struct s_color
 {
 	int	tr;
 	int	r;
 	int	g;
 	int	b;
-}	t_color;
+}				t_color;
 
-
-typedef struct	s_data
+typedef struct s_data
 {
 	void	*img;
 	char	*addr;
@@ -55,7 +54,7 @@ typedef struct	s_data
 	void	*mlx_win;
 	int		line_length;
 	int		endian;
-	int 	width;
+	int		width;
 	int		height;
 	double	sqsize;
 }				t_data;
@@ -73,18 +72,15 @@ typedef struct s_obj
 	t_data			img;
 	t_ref			ref;
 	struct s_obj	*next;
-}	t_obj;
-
+}				t_obj;
 
 typedef struct s_light
 {
 	t_coordinates	light_co;
 	double			light_b;
 	t_color			light_color;
-	struct s_light			*next;
-} t_light;
-
-
+	struct s_light	*next;
+}				t_light;
 
 typedef struct s_scene
 {
@@ -98,8 +94,7 @@ typedef struct s_scene
 	t_obj			*obj;
 	t_data			img;
 	int				rep;
-}	t_scene;
-
+}				t_scene;
 
 typedef struct s_point
 {
@@ -107,7 +102,7 @@ typedef struct s_point
 	t_coordinates	point;
 	t_coordinates	normal;	
 	t_color			color;
-} t_point;
+}				t_point;
 
 typedef struct s_quad_eq
 {
@@ -118,5 +113,14 @@ typedef struct s_quad_eq
 	double	r1;
 	double	r2;
 }	t_quad_eq;
+
+typedef struct s_thread
+{
+	t_scene		*scene;
+	pthread_t	thread;
+	int			id;
+	int			start;
+	int			end;
+}				t_thread;
 
 #endif

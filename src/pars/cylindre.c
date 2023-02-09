@@ -3,22 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   cylindre.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:04:42 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 23:33:28 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 03:09:57 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-
-
-
-
 void	creat_circle(t_scene *scene, t_obj *obj, int i)
 {
-	t_obj	*newobj;
+	t_obj			*newobj;
 	t_coordinates	tmp;
 
 	newobj = new_obj(3);
@@ -49,7 +45,7 @@ void	creat_cylindre(t_obj *obj, char **tmp)
 		obj->color2 = obj->color;
 		if (tmp[6])
 		{
-			obj->id = 2;	
+			obj->id = 2;
 			obj->color2 = ft_atocolor(tmp[6]);
 		}
 	}
@@ -61,7 +57,8 @@ void	cylinder_pars(char *line, t_scene *scene, int fd)
 	t_obj	*obj;
 
 	tmp = ft_split(line, ' ');
-	if ((ft_lstsize(tmp) != 6 && ft_lstsize(tmp) != 7) || ft_strcmp(tmp[0], "cy"))
+	if ((ft_lstsize(tmp) != 6 && ft_lstsize(tmp) != 7)
+		|| ft_strcmp(tmp[0], "cy"))
 		exit(1);
 	obj = new_obj(2);
 	creat_cylindre(obj, tmp);
@@ -73,4 +70,3 @@ void	cylinder_pars(char *line, t_scene *scene, int fd)
 	free_list(tmp);
 	pars(scene, fd);
 }
-
