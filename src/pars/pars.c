@@ -6,17 +6,11 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:05:30 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 23:22:56 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 01:56:15 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-
-void printc(t_coordinates c)
-{
-	printf("\t%f,%f,%f", c.x,c.y,c.z);
-}
 
 
 void	pars(t_scene *scene, int fd)

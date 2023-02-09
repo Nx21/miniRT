@@ -1,0 +1,10 @@
+A 0.1 255,255,255
+C -100,0,0 1,0,0 60
+L -100,50,-35 0.9 255,255,255
+
+
+
+pl 50.0,0.0,0 1.0,0,0 tx:texture/zlij.xpm:300
+pl 0.0,0.0,40 0,0,1 tx:texture/zlij.xpm:300
+cy 50.0,0,20 0,0.0,1.0 50.2 21.42 tx:texture/zlij_twil.xpm:70
+cy 50.0,0,20 0,0,1.0 40 21.42 tx:texture/pool-water.xpm:0

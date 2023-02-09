@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:06:21 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 23:22:41 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 02:02:54 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	plane_pars(char *line, t_scene *scene, int fd)
 	t_obj	*obj;
 
 	tmp = ft_split(line, ' ');
-	if (ft_lstsize(tmp) != 4 || ft_strcmp(tmp[0], "pl"))
+	if ((ft_lstsize(tmp) != 4  && ft_lstsize(tmp) != 5) || ft_strcmp(tmp[0], "pl"))
 		exit(1);
 	obj = new_obj(1);
 	obj->coor = ft_atoc(tmp[1]);
@@ -30,7 +30,10 @@ void	plane_pars(char *line, t_scene *scene, int fd)
 		obj->color = ft_atocolor(tmp[3]);
 		obj->color2 = obj->color;
 		if (tmp[4])
+		{
 			obj->color2 = ft_atocolor(tmp[4]);
+			obj->id = 2;	
+		}
 	}
 	obj->ref = creat_ref(obj->vec);
 	scene->obj = add_front(scene->obj, obj);

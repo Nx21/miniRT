@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 00:36:01 by orekabe           #+#    #+#             */
-/*   Updated: 2023/02/08 17:11:14 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 01:55:59 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void    *routine(void *add)
     thread = add;
     for (int i = 0; i < WIDTH; i++)
 	{
-		// printf("%d\t", thread->id);
 		for (int j = thread->start; j < thread->end; j++)
 		{
             int c = ft_colortoi(pixel_color(*thread->scene, i, j));

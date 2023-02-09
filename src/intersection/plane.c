@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:38:22 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 22:10:49 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 02:05:40 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,15 @@ t_point	*intersection_infinit_plan(t_coordinates v ,t_obj *obj)
 	point = intersection_plan(v, obj);
 	if (!obj->id || !point)
 		return point;
-	if (obj->id)
+	if (obj->id == 2)
 	{
 		x = sub_c(obj->coor, point->point);
 		ref = creat_ref(point->normal);
-		res = (((dot_prod_c(x, ref.j))));
-		res2 = ((dot_prod_c(x, ref.k)));
+		res = (((dot_prod_c(x, ref.j)))) / 10;
+		res2 = ((dot_prod_c(x, ref.k))) / 10;
+		if ((int)(round(res) + round(res2))%2)
+			point->color = obj->color2;
 	}
-	if (obj->id == 2 && (int)(res + res2)%2)
-		point->color = obj->color2;
 	if(obj->id == 1)
 		return texture_plan(point, obj);
 	return point;

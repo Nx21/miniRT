@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 11:54:58 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 23:22:13 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 01:56:31 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void    get_img(char *file, t_obj *obj)
 	if (ft_lstsize(str) != 3)
 		exit(1);
 	int fd = open(str[1], O_RDWR);
-	puts(str[1]);
 	if (fd == -1)
 		exit(1);
 	close(fd);
