@@ -6,7 +6,7 @@
 #    By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/17 17:15:03 by nhanafi           #+#    #+#              #
-#    Updated: 2023/02/09 05:55:13 by orekabe          ###   ########.fr        #
+#    Updated: 2023/02/09 17:44:18 by orekabe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 FILES = mlx_events threads add_front utils/ft_atoi utils/ft_isalnum utils/ft_putstr_fd utils/ft_strdup\
 	utils/ft_strstr utils/instr utils/ft_calloc utils/ft_itoa utils/ft_memset utils/ft_split utils/ft_strcmp \
 	utils/ft_strlen utils/ft_substr utils/end_with utils/ft_strtrim utils/ft_atof utils/ft_strrchr\
-	utils/ft_atoc utils/ft_count utils/ft_lstsize utils/ft_atocolor utils/ft_fswap\
+	utils/ft_atoc utils/ft_count utils/ft_lstsize utils/ft_atocolor utils/ft_fswap utils/error\
 	get_next_line/get_next_line get_next_line/get_next_line_utils\
 	pars/ambient pars/camera pars/cylindre pars/light pars/pars pars/plane pars/sphere pars/get_v_cam pars/get_img pars/cube\
 	operation/equal operation/vector operation/vector_operation operation/sd_equation operation/creat_referance\

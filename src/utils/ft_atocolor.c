@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:41:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 02:45:48 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:46:05 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_color	ft_atocolor(char *str)
 
 	list = ft_split(str, ',');
 	if (ft_lstsize(list) != 3 && ft_count(str, ',') != 3)
-		exit(1);
+		err();
 	res.r = ft_atof(list[0]);
 	res.g = ft_atof(list[1]);
 	res.b = ft_atof(list[2]);

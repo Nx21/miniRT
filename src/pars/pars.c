@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:05:30 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 02:53:27 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:46:05 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ void	pars(t_scene *scene, int fd)
 		return (cylinder_pars(line, scene, fd));
 	if (start_with(line, "cb"))
 		return (cube_pars(line, scene, fd));
-	exit(1);
+	err();
 }

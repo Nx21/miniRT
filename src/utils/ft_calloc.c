@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 05:36:12 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 22:38:32 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:52:22 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_calloc(int number, int size)
 
 	i = 0;
 	c = malloc(number * size);
+	if (!c)
+		return (NULL);
 	while (i < number * size)
 	{
 		c[i] = 0;

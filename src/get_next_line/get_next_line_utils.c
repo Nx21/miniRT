@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 15:38:54 by orekabe           #+#    #+#             */
-/*   Updated: 2023/02/09 04:34:40 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:53:56 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s1)
 	{
 		s1 = (char *)malloc(sizeof(char));
+		if (!s1)
+			return (NULL);
 		*s1 = '\0';
 	}
 	if (!s2)

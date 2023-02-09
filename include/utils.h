@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/29 20:02:30 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:54:28 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,5 @@ t_color			ft_atocolor(char *str);
 int				ft_colortoi(t_color color);
 t_color			ft_itocolor(int color);
 void			ft_fswap(double *a, double *b);
+void			err(void);
 #endif

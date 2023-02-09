@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:06:44 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 05:33:09 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:46:05 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	sphere_pars(char *line, t_scene *scene, int fd)
 	tmp = ft_split(line, ' ');
 	if ((ft_lstsize(tmp) != 4 && ft_lstsize(tmp) != 5)
 		|| ft_strcmp(tmp[0], "sp"))
-		exit(1);
+		err();
 	obj = new_obj(0);
 	obj->coor = ft_atoc(tmp[1]);
 	obj->diameter = ft_atof(tmp[2]);

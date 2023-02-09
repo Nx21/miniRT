@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 02:28:55 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 02:46:10 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:46:05 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_coordinates	ft_atoc(char *str)
 
 	list = ft_split(str, ',');
 	if (ft_lstsize(list) != 3 && ft_count(str, '.') != 3)
-		exit(1);
+		err();
 	res.x = ft_atof(list[0]);
 	res.y = ft_atof(list[1]);
 	res.z = ft_atof(list[2]);

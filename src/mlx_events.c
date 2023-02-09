@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 04:44:04 by orekabe           #+#    #+#             */
-/*   Updated: 2023/02/09 04:44:58 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:56:35 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_close(t_scene *scene)
 {
 	mlx_destroy_image(scene->img.mlx, scene->img.img);
 	mlx_destroy_window(scene->img.mlx, scene->img.mlx_win);
-	exit (0);
+	exit(0);
 }
 
 int	ft_keys(int key, t_scene *scene)
@@ -30,7 +30,7 @@ int	ft_destroy(t_scene *scene)
 {
 	mlx_destroy_image(scene->img.mlx, scene->img.img);
 	mlx_destroy_window(scene->img.mlx, scene->img.mlx_win);
-	exit (0);
+	exit(0);
 }
 
 void	ft_hook(t_scene *scene)

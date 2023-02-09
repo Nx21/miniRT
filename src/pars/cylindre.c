@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:04:42 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 03:09:57 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:46:05 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	cylinder_pars(char *line, t_scene *scene, int fd)
 	tmp = ft_split(line, ' ');
 	if ((ft_lstsize(tmp) != 6 && ft_lstsize(tmp) != 7)
 		|| ft_strcmp(tmp[0], "cy"))
-		exit(1);
+		err();
 	obj = new_obj(2);
 	creat_cylindre(obj, tmp);
 	obj->ref = creat_ref(obj->vec);

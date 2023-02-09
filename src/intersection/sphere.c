@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:47:56 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 17:34:51 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:50:30 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ t_point	*creat_sphere_point(t_obj *obj, t_coordinates v, double t)
 	t_point	*point;
 
 	point = (t_point *)malloc(sizeof(t_point));
+	if (!point)
+		err();
 	point->distance = t;
 	point->point = prod_c(t, v);
 	point->normal = norm_c(sub_c(point->point, obj->coor));

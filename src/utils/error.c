@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_front.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 04:40:49 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 17:45:25 by orekabe          ###   ########.fr       */
+/*   Created: 2023/02/09 17:43:16 by orekabe           #+#    #+#             */
+/*   Updated: 2023/02/09 17:56:55 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "utils.h"
 
-t_obj	*add_front(t_obj *head, t_obj *obj)
+void	err(void)
 {
-	if (!head)
-		return (obj);
-	obj->next = head;
-	return (obj);
-}
-
-t_obj	*new_obj(int type)
-{
-	t_obj	*obj;
-
-	obj = (t_obj *)malloc(sizeof(t_obj));
-	if (!obj)
-		err();
-	obj->type = type;
-	obj->next = NULL;
-	obj->id = 0;
-	return (obj);
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
 }

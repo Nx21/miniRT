@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 23:15:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 02:43:37 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:46:05 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	check_float(char *str)
 	if (ft_strchr(str, '.') != ft_strrchr(str, '.')
 		&& ft_strchr(str, 'e') != ft_strrchr(str, 'e')
 		&& ft_strchr(str, 'e') < ft_strrchr(str, '.'))
-		exit(1);
+		err();
 	i = 0;
 	while (str[i])
 	{

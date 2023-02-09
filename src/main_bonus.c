@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 00:36:01 by orekabe           #+#    #+#             */
-/*   Updated: 2023/02/09 05:53:06 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:48:42 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,15 @@ void	scene_init(t_scene *scene)
 	scene->light = NULL;
 	scene->obj = NULL;
 	scene->v_cam = (t_coordinates **)malloc(WIDTH * sizeof(t_coordinates *));
+	if (!scene->v_cam)
+		err();
 	while (++i < WIDTH)
+	{
 		scene->v_cam[i] = (t_coordinates *)malloc(HEIGHT
 				* sizeof(t_coordinates));
+		if (!scene->v_cam[i])
+			err();
+	}
 }
 
 void	change_referance(t_scene *scene)

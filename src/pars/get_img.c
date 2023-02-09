@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 11:54:58 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 03:08:49 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:46:05 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	get_img(char *file, t_obj *obj)
 	str = ft_split(file, ':');
 	obj->img.mlx = mlx_init();
 	if (ft_lstsize(str) != 3)
-		exit(1);
+		err();
 	fd = open(str[1], O_RDWR);
 	if (fd == -1)
-		exit(1);
+		err();
 	close(fd);
 	obj->img.sqsize = ft_atof(str[2]);
 	obj->img.img = mlx_xpm_file_to_image(obj->img.mlx,
@@ -35,6 +35,6 @@ void	get_img(char *file, t_obj *obj)
 			&obj->img.bits_per_pixel, &obj->img.line_length,
 			&obj->img.endian);
 	if (!obj->img.addr_int)
-		exit(1);
+		err();
 	free_list(str);
 }

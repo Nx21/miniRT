@@ -6,7 +6,7 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 16:28:49 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 03:11:41 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:46:05 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	cube_pars(char *line, t_scene *scene, int fd)
 	tmp = ft_split(line, ' ');
 	if ((ft_lstsize(tmp) != 6 && ft_lstsize(tmp) != 5)
 		|| ft_strcmp(tmp[0], "cb"))
-		exit(1);
+		err();
 	obj = new_obj(4);
 	cube_(tmp, obj);
 	i = -3;

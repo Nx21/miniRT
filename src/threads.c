@@ -6,28 +6,11 @@
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 04:46:51 by orekabe           #+#    #+#             */
-/*   Updated: 2023/02/09 05:52:44 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:48:14 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-int	end_with(char *src, char *to_find)
-{
-	int	i;
-	int	j;
-
-	i = ft_strlen(src) - 1;
-	j = ft_strlen(to_find) - 1;
-	while (j >= 0)
-	{
-		if (i < 0 || src[i] != to_find[j])
-			return (0);
-		i--;
-		j--;
-	}
-	return (1);
-}
 
 void	*routine(void *add)
 {
@@ -62,7 +45,7 @@ void	render(t_scene *scene)
 	n = 6;
 	threads = malloc(sizeof(t_thread) * n);
 	if (!threads)
-		return ;
+		err();
 	while (i < n)
 	{
 		threads[i].scene = scene;
