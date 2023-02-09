@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:47:56 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 00:40:52 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 03:01:09 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_point	*texture_sphere(t_point *point, t_obj *obj)
 	x = prod_c(dot_prod_c(make_coor(0,0,1), point->normal),  make_coor(0,0,1));
 	x = norm_c(sub_c(point->normal, x));
 	res = (((point->point.z - obj->coor.z)/(obj->diameter)) + 1) * obj->img.height/2;
-	res2 =  (1 + (atan2(x.x, x.y)/ (M_PI))) * obj->img.width/2;
+	res2 =  (1 - (atan2(x.x, x.y)/ (M_PI))) * obj->img.width/2;
 	point->color = ft_itocolor(obj->img.addr_int[(int)(res) * obj->img.width + (int)(res2)]);
 	if (obj->img.sqsize)
 	{
