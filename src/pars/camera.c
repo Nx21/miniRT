@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:03:57 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/01/24 02:26:22 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/08 22:40:17 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,5 @@ void	camera_pars(char *line, t_scene *scene, int fd)
 		exit(1);
 	free(line);
 	free_list(tmp);
-	// printf("camera : %f\t", scene->fov);
-	// printc(scene->cam_co);
-	// printc(scene->cam_vec_x);
-	printf("\n");
 	pars(scene, fd);
 }

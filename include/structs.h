@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 17:19:11 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/08 20:28:31 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct	s_data
 	int		endian;
 	int 	width;
 	int		height;
+	double	sqsize;
 }				t_data;
 
 typedef struct s_obj

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:17:34 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 17:28:10 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/08 23:23:47 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@ t_point	*intersection_circle(t_coordinates v, t_obj *obj);
 t_point	*intersection_infinit_plan(t_coordinates v ,t_obj *obj);
 t_point	*intersection_square(t_coordinates v, t_obj *obj);
 void	cube_pars(char *line, t_scene *scene, int fd);
+void	bump_cal(double res, t_coordinates *direction, t_coordinates *normal);
 // tmp
 void printc(t_coordinates c);
 t_color add_color(t_color color1, t_color color2);
 double magnitude(t_coordinates v);
 t_color color_degree(t_color color, double d);
-void    get_img(char *file, t_scene *scene, t_obj *obj);
+void    get_img(char *file, t_obj *obj);
 #endif

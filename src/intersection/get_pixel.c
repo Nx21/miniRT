@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:54:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 18:58:19 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/09 01:07:12 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,8 +185,20 @@ double is_intersection_circle(t_coordinates x, t_coordinates v, t_obj *obj)
 	return res;
 }
 
-
-
+double	find_is_intersection(t_coordinates v, t_obj *obj, t_coordinates x)
+{
+	if(obj->type == 0)
+		return is_intersection_sphere(x, v, obj);
+	else if (obj->type == 1)
+		return is_intersection_plan(x, v, obj);
+	else if (obj->type == 2)
+		return is_intersection_cylindre(x, v, obj);
+	else if (obj->type == 3)
+		return is_intersection_circle(x, v, obj);
+	else if (obj->type == 4)
+		return is_intersection_square(x, v, obj);
+	return 0;
+}
 
 int is_intersected(t_scene scene, t_coordinates l, t_coordinates x)
 {
@@ -203,16 +215,7 @@ int is_intersected(t_scene scene, t_coordinates l, t_coordinates x)
 	tmp = 0;
 	while(obj)
 	{
-		if(obj->type == 0)
-			tmp = is_intersection_sphere(x, v, obj);
-		else if (obj->type == 1)
-			tmp = is_intersection_plan(x, v, obj);
-		else if (obj->type == 2)
-			tmp = is_intersection_cylindre(x, v, obj);
-		else if (obj->type == 3)
-			tmp = is_intersection_circle(x, v, obj);
-		else if (obj->type == 4)
-			tmp = is_intersection_square(x, v, obj);
+		tmp = find_is_intersection(v, obj, x);
 		if (tmp && tmp < maxdis)
 			return (1);
 		obj = obj->next;
@@ -223,14 +226,51 @@ int is_intersected(t_scene scene, t_coordinates l, t_coordinates x)
 
 double is_light(t_point *p, t_light *l, t_coordinates v)
 {
-	t_coordinates vprinm = norm_c(add_c(v, prod_c(-2 * dot_prod_c(p->normal, v), p->normal)));
-	t_coordinates vlight = norm_c(sub_c(l->light_co, p->point));
-	 
-	// if((dot_prod_c(vprinm, vlight)) > 0.9)
+	t_coordinates vprinm;
+	t_coordinates vlight;
+
+	vprinm = norm_c(add_c(v, prod_c(-2 * dot_prod_c(p->normal, v), p->normal)));
+	vlight = norm_c(sub_c(l->light_co, p->point));
 	return pow(dot_prod_c(vprinm, vlight),25);
-	return 0;
 }
 
+
+
+t_color	add_light(t_point *res, t_scene scene, t_coordinates v)
+{
+	t_color color;
+	t_light *l;
+
+	l = scene.light;
+	color = ft_itocolor(0);
+	while (l)
+	{
+		if(res && !is_intersected(scene, l->light_co, res->point))
+		{
+			color = add_color(color, (add_color(prod_color(l->light_color, color_degree(res->color, l->light_b * fabs(dot_prod_c(norm_c(sub_c(l->light_co, res->point)), res->normal))))
+				,color_degree(l->light_color, l->light_b * is_light(res, l, v)))));
+		}
+		l = l->next;
+	}
+	if(res)
+		return (add_color(color, color_degree(res->color, scene.ratio)));
+	return ft_itocolor(0);
+}
+
+t_point	*find_intersection(t_coordinates v, t_obj *obj)
+{
+	if(obj->type == 0)
+		return intersection_sphere(v, obj);
+	else if (obj->type == 1)
+		return intersection_infinit_plan(v, obj);
+	else if (obj->type == 2)
+		return intersection_cylindre(v, obj);
+	else if (obj->type == 3)
+		return intersection_circle(v, obj);
+	else if (obj->type == 4)
+		return intersection_square(v, obj);
+	return NULL;
+}
 
 
 t_color	pixel_color(t_scene scene, int i, int j)
@@ -238,26 +278,13 @@ t_color	pixel_color(t_scene scene, int i, int j)
 	t_obj *obj;
 	t_point *tmp;
 	t_point *res;
-	t_color color;
 
-	obj = scene.obj;
 	res = NULL;
 	tmp = NULL;
-	color = ft_itocolor(0);
+	obj = scene.obj;
 	while(obj)
 	{
-		if(obj->type == 0)
-			tmp = intersection_sphere(scene.v_cam[i][j], obj);
-		else if (obj->type == 1)
-			tmp = intersection_infinit_plan(scene.v_cam[i][j], obj);
-		else if (obj->type == 2)
-			tmp = intersection_cylindre(scene.v_cam[i][j], obj);
-		else if (obj->type == 3)
-			tmp = intersection_circle(scene.v_cam[i][j], obj);
-		else if (obj->type == 4)
-			tmp = intersection_square(scene.v_cam[i][j], obj);
-		else
-			tmp = NULL;
+		tmp = find_intersection(scene.v_cam[i][j], obj);
 		if (tmp && (!res || res->distance > tmp->distance))
 		{
 			free(res);
@@ -267,22 +294,5 @@ t_color	pixel_color(t_scene scene, int i, int j)
 			free(tmp);
 		obj = obj->next;
 	}
-	// if(is_light(res, scene.light, scene.cam[i][j]))
-	// {
-	// 	return color_degree(0xffffff , );
-	// }
-	t_light *l = scene.light;
-	while (l)
-	{
-		if(res && !is_intersected(scene, l->light_co, res->point))
-		{
-			color = add_color(color, (add_color(prod_color(l->light_color, color_degree(res->color, l->light_b * fabs(dot_prod_c(norm_c(sub_c(l->light_co, res->point)), res->normal))))
-				,color_degree(l->light_color, l->light_b * is_light(res, l, scene.v_cam[i][j])))));
-		}
-		l = l->next;
-	}
-	
-	if(res)
-		return (add_color(color, color_degree(res->color, scene.ratio)));
-	return ft_itocolor(0);
+	return add_light(res, scene, scene.v_cam[i][j]);
 }

@@ -15,11 +15,7 @@
 t_obj *add_front(t_obj *head, t_obj *obj)
 {
 	if (!head)
-	{
-		// obj->id = 0;
 		return obj;
-	}
-	// obj->id = head->id + 1;
 	obj->next = head;
 	return obj;
 }

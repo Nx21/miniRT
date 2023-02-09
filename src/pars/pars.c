@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 05:05:30 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/08 18:56:22 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/08 23:22:56 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	pars(t_scene *scene, int fd)
 		return (ambient_pars(line, scene, fd));
 	if (start_with(line, "C"))
 		return (camera_pars(line, scene, fd));
-	if (start_with(line, "L"))
+	if (start_with(line, "L") || start_with(line, "l"))
 		return (light_pars(line, scene, fd));
 	if (start_with(line, "sp"))
 		return (sphere_pars(line, scene, fd));

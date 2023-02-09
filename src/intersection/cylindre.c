@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 22:21:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/07 16:18:46 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/08 23:56:15 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,40 @@ t_point *creat_point_cylindre(t_coordinates p, t_coordinates c, t_coordinates v)
 	point = (t_point *)malloc(sizeof(t_point));
 	point->point = p;
 	point->normal = norm_c(sub_c(sub_c(p,c), v));
-	
+	return point;
+}
+
+t_point	*texture_cylindre(t_point *point, t_obj *obj)
+{
+	double res = 0,res2 = 0;
+	t_coordinates x;
+
+	res = ((fabs(dot_prod_c(sub_c(point->point, obj->coor), obj->vec))/obj->height) * obj->img.height/2);
+	x = prod_c(dot_prod_c(obj->ref.i, point->normal), obj->ref.i);
+	x = norm_c(sub_c(point->normal, x));
+	res2 = (1 - atan2(dot_prod_c(obj->ref.j, x), dot_prod_c(obj->ref.k, x))/M_PI) * obj->img.width;
+	int a = (((int)(res) % obj->img.height) + obj->img.height)% obj->img.height;
+	int b = (((int)(res2) % obj->img.width) + obj->img.width)% obj->img.width;
+	point->color = ft_itocolor(obj->img.addr_int[(a * obj->img.width + b)]);
+	if (obj->img.sqsize)
+	{
+		bump_cal(res * obj->img.sqsize / obj->img.height, &obj->ref.j, &point->normal);
+		bump_cal(res2 * obj->img.sqsize / obj->img.width , &obj->ref.k, &point->normal);
+		point->normal = norm_c(point->normal);
+	}
+	return point;
+}
+
+t_point	*checkerboard_cylindre(t_point *point, t_obj *obj)
+{
+	double res = 0,res2 = 0;
+	t_coordinates x;
+
+	res = ((fabs(dot_prod_c(sub_c(point->point, obj->coor), obj->vec))));;
+	x = sub_c(obj->coor, point->point);
+	res2 = (1 + atan2(dot_prod_c(obj->ref.k, x), dot_prod_c(obj->ref.j, x))/M_PI) * obj->diameter * 5;
+	if ((int)(round(res2) + round(res)) % 2)
+		point->color = obj->color2;
 	return point;
 }
 
@@ -30,58 +63,22 @@ t_point	*get_point_cylindre(t_quad_eq parm, t_obj *obj, t_coordinates v)
 	t_point *point;
 
 	m = dot_prod_c(v, obj->vec) * parm.r1 - dot_prod_c(obj->coor, obj->vec);
-	if (m >= 0 && m <= obj->height)
-	{
-		point = creat_point_cylindre(prod_c(parm.r1, v), obj->coor, prod_c(m, obj->vec));
-		point->color = ft_itocolor(0xff);
-		if(obj->id)
-		{
-			int res =0, res2 = 0;
-			t_ref	ref;
-			res = ((fabs(dot_prod_c(sub_c(point->point, obj->coor), obj->vec))/obj->height) * obj->img.height/2);
-			// x = point->normal;
-			// res = atan(x.z/x.x) * 10 / M_PI;
-			ref = creat_ref(obj->vec);
-			t_coordinates x = prod_c(dot_prod_c(ref.i, point->normal), ref.i);
-			// printc(point->normal);
-			x = norm_c(sub_c(point->normal, x));
-			res2 = (1 - atan2(dot_prod_c(ref.j, x), dot_prod_c(ref.k, x))/M_PI) * obj->img.width;
-			point->color = ft_itocolor(obj->img.addr_int[(int)(res) * obj->img.width + (int)(res2)]);
-			double res3 = 0, res4 = 0;
-			res3 = ((fabs(dot_prod_c(sub_c(point->point, obj->coor), obj->vec))));;
-			x = sub_c(obj->coor, point->point);
-			res4 = (1 + atan2(dot_prod_c(ref.k, x), dot_prod_c(ref.j, x))/M_PI) * obj->diameter * 5;
-			point->normal = norm_c(add_c(point->normal, prod_c((round(res3) - res3) + (double)(rand()%110 - 50)/1000 ,ref.j)));
-			point->normal = norm_c(add_c(point->normal, prod_c((round(res4) - res4) +(double)(rand()%110 - 50)/1000,ref.k)));
-		
-			point->point = prod_c(parm.r1 -  fabs(round(res3) - res3) - fabs(round(res4) - res4), v);
-			// if ((int)(round(res4) + round(res3)) % 2 == 0)
-			// 	point->color = obj->color2;
-			// else
-			// 	point->color = obj->color;
-		}
-		point->distance = parm.r1;
+	if (m < 0 || m > obj->height)
+		return NULL;
+	point = creat_point_cylindre(prod_c(parm.r1, v), obj->coor, prod_c(m, obj->vec));
+	point->color = obj->color;
+	point->distance = parm.r1;
+	if(!obj->id)
 		return point;
-	}
-	return NULL;
-// 	else if (m < 0)
-// 	{
-// 		m = dot_prod_c(v, obj->vec) * parm.r2 - dot_prod_c(obj->coor, obj->vec);
-// 		if(m < 0)
-// 			return NULL;
-// 		return intersection_cylindre_down(v, obj);;
-// 	}
-// 	m = dot_prod_c(v, obj->vec) * parm.r2 - dot_prod_c(obj->coor, obj->vec);
-// 	if(m > obj->height)
-// 		return NULL;
-// 	return intersection_cylindre_up(v, obj);
+	if (obj->id == 1)
+		return texture_cylindre(point, obj);
+	return checkerboard_cylindre(point, obj);
 }
 
 t_point	*intersection_cylindre(t_coordinates v, t_obj *obj)
 {
 	t_quad_eq		parm;
 
-	// exit(0);
 	if(!obj || obj->type != 2)
 		return NULL;
 	parm.a = dot_prod_c(v,v) - pow(dot_prod_c(v,obj->vec), 2);

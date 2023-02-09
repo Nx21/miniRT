@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:38:22 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/07 14:32:21 by nhanafi          ###   ########.fr       */
+/*   Updated: 2023/02/08 22:10:49 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,28 @@ t_point	*intersection_plan(t_coordinates v, t_obj *obj)
 	return (creat_plane_point(obj, v, res));
 }
 
+t_point	*texture_plan(t_point *point, t_obj *obj)
+{
+	double res = 0,res2 = 0;
+	int a,b;
+	t_coordinates x;
+
+	x = sub_c(obj->coor, point->point);
+	res = dot_prod_c(obj->ref.j, x);
+	res2 = dot_prod_c(obj->ref.k, x);
+	a = (((int)(res * 10) % obj->img.height) + obj->img.height)% obj->img.height;
+	b = (((int)(res2 * 10) % obj->img.width) + obj->img.width)% obj->img.width;
+	point->color = ft_itocolor(obj->img.addr_int[(a * obj->img.width + b)]);
+	if (obj->img.sqsize)
+	{
+		bump_cal(res * obj->img.sqsize / obj->img.height, &obj->ref.j, &point->normal);
+		bump_cal(res2 * obj->img.sqsize / obj->img.width, &obj->ref.k, &point->normal);
+		point->normal = norm_c(point->normal);
+	}
+	return point;
+}
+
+
 t_point	*intersection_infinit_plan(t_coordinates v ,t_obj *obj)
 {
 	t_point *point;
@@ -62,12 +84,6 @@ t_point	*intersection_infinit_plan(t_coordinates v ,t_obj *obj)
 	if (obj->id == 2 && (int)(res + res2)%2)
 		point->color = obj->color2;
 	if(obj->id == 1)
-	{
-		int a = (((int)(res * 10) % obj->img.height) + obj->img.height)% obj->img.height;
-		int b = (((int)(res2 * 10) % obj->img.width) + obj->img.width)% obj->img.width;
-		point->color = ft_itocolor(obj->img.addr_int[(a * obj->img.width + b)]);
-		point->normal = norm_c(add_c(point->normal, prod_c(-(round(res ) - res) / 3+ (double)(rand()%110 - 50)/1000 ,ref.j)));
-		point->normal = norm_c(add_c(point->normal, prod_c(-(round(res2 ) - res2 ) / 3+ (double)(rand()%110 - 50)/1000,ref.k)));
-	}
+		return texture_plan(point, obj);
 	return point;
 }
