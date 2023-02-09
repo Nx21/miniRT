@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 04:46:51 by orekabe           #+#    #+#             */
-/*   Updated: 2023/02/09 17:48:14 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/10 00:29:20 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ void	render(t_scene *scene)
 	}
 	i = -1;
 	while (++i < n)
-	{
 		if (pthread_join(threads[i].thread, NULL) != 0)
 			return ;
-	}
+	free(threads);
 }

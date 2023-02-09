@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_pixel2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 04:14:51 by orekabe           #+#    #+#             */
-/*   Updated: 2023/02/09 05:43:48 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/10 00:27:58 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,9 @@ t_color	add_light(t_point *res, t_scene scene, t_coordinates v)
 		l = l->next;
 	}
 	if (res)
-		return (add_color(color, color_degree(res->color, scene.ratio)));
+	{
+		color = add_color(color, color_degree(res->color, scene.ratio));
+		return (free(res), color);
+	}
 	return (ft_itocolor(0));
 }
