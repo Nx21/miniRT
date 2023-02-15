@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:40:06 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 04:30:33 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/14 18:48:29 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	bump_cal(double res, t_coordinates *direction, t_coordinates *normal)
 {
 	t_coordinates	tmp;
 
-	tmp = prod_c((res - round(res)) / 2 + (double)(rand() % 110 - 50)
-			/ 1000, *direction);
+	tmp = prod_c(res, *direction);
 	*normal = add_c(*normal, tmp);
+	*normal = norm_c(*normal);
 }
 
 t_point	*texture_square(t_point *point, t_obj *obj)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 01:47:56 by nhanafi           #+#    #+#             */
-/*   Updated: 2023/02/09 17:50:30 by orekabe          ###   ########.fr       */
+/*   Updated: 2023/02/14 19:07:39 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ t_point	*texture_sphere(t_point *point, t_obj *obj)
 {
 	double			res;
 	double			res2;
+	double			y1;
+	double			y2;
+	double			r1;
+	double			r2;
+	// static		int	max = 0;
 	t_coordinates	x;
 
 	res = 0;
@@ -28,11 +33,28 @@ t_point	*texture_sphere(t_point *point, t_obj *obj)
 	res2 = (1 - (atan2(x.x, x.y) / (M_PI))) * obj->img.width / 2;
 	point->color = ft_itocolor(obj->img.addr_int[(int)res
 			* obj->img.width + (int)res2]);
-	if (obj->img.sqsize)
+	y1 = obj->bump.addr_int[((int)(res - 1 + obj->img.height) % obj->img.height) * obj->img.width + (int)res2];
+	y2 = obj->bump.addr_int[((int)(res + 1 + obj->img.height) % obj->img.height) * obj->img.width + (int)res2];
+	r1 = -(y2 - y1)/0x0300000;
+	// if (fabs(y1) > max)
+	// 	max = fabs(y1);
+	// if (fabs(y2) > max)
+	// 	max = fabs(y2);
+	
+	y1 = obj->bump.addr_int[(int)(res) * obj->img.width + (int)(res2 - 1 + obj->img.width)%obj->img.width];
+	y2 = obj->bump.addr_int[(int)(res) * obj->img.width + (int)(res2 + 1 + obj->img.width)%obj->img.width];
+	r2 = (y2 - y1)/0x0300000;
+	// if (fabs(y1) > max)
+	// 	max = fabs(y1);
+	// if (fabs(y2) > max)
+	// 	max = fabs(y2);
+	// printf("%d\n", max);
+	// printf("%d %d\n", (int)r1, (int)r2);
+	// if (obj->img.sqsize)
 	{
-		bump_cal(res2 * obj->img.sqsize / obj->img.width,
+		bump_cal(r2,
 			&obj->ref.j, &point->normal);
-		bump_cal(res * obj->img.sqsize / obj->img.height,
+		bump_cal(r1,
 			&obj->ref.k, &point->normal);
 		point->normal = norm_c(point->normal);
 	}
