@@ -1,7 +1,7 @@
 # 42 miniRt Project
 Welcome to the 42 minirt project! This project is a simple raytracer that is capable of rendering basic geometric shapes in a 3D space. The project is written in C and is intended for educational purposes.
 
-![Screenshot](img/morocco.png)
+![Screenshot](img/sun.png)
 
 # Requirements
 - A C compiler (such as GCC)
@@ -20,7 +20,7 @@ This will create an executable file called "minirt". To run the program, use the
 ```
 Where scene_file is the path to a scene file that describes the objects, lights, and camera for the scene you want to render. An example scene file is provided in the "scenes" directory.
 
-![Screenshot](img/room404.png)
+![Screenshot](img/Metal.png)
 
 # Scene File Format
 The scene file is a simple text file that describes the objects, lights, and camera for the scene you want to render.
@@ -36,7 +36,7 @@ For example, to define a blue sphere with a radius of 12.6 and a position of (0.
 sp 0.0,0.0,20.6 12.6 0,0,255
 ```
 
-![Screenshot](img/8pool.png)
+![Screenshot](img/leather.png)
 
 Please refer to the example scene file for more information on the specific properties and format for each object, light, and camera.
 
@@ -47,10 +47,10 @@ This project is a basic implementation of a raytracer and as such has several li
 Only basic geometric shapes are supported (spheres and planes)
 Shadows and reflections are not currently supported
 The number of objects and lights that can be rendered is limited
-![Screenshot](img/color.png)
+![Screenshot](img/Water.png)
 # Conclusion
 
 This project is intended as an educational tool to help understand the basic concepts of a raytracer. It is not intended for production use.
 If you have any questions or encounter any issues while using this project, please contact us.
 
-![Screenshot](img/basketball.png)
+![Screenshot](img/M&M.png)

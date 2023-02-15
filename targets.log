@@ -1,0 +1,1507 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+ 
+
+# Make data base, printed on Wed Feb 15 20:03:04 2023
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# makefile (from `Makefile', line 39)
+OBJ = $(addprefix $(ODIR)/, $(MAIN:=.o))
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /goinfre/nhanafi/miniRT
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 31)
+NAME_BONUS = miniRT_bonus
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# makefile (from `Makefile', line 26)
+BONUS = main_bonus $(FILES)
+# environment
+VSCODE_CWD = /goinfre/nhanafi/miniRT
+# environment
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.HWcakVxL5H/Render
+# environment
+PATH = /Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/nhanafi/goinfre/.brew/bin:/Users/nhanafi/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.11cA7YOX6S/Listeners
+# automatic
+%F = $(notdir $%)
+# environment
+HOMEBREW_TEMP = /tmp/nhanafi/Homebrew/Temp
+# environment
+PWD = /Users/nhanafi/goinfre/miniRT
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/nhanafi
+# default
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/nhanafi/Library/Application Support/Code/CachedData/e2816fe719a4026ffa1ee0189dc89bdfdbafb164
+# environment
+LOGNAME = nhanafi
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+ZSH = /Users/nhanafi/.oh-my-zsh
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XPC_FLAGS = 0x0
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+LC_TERMINAL = iTerm2
+# environment
+HOMEBREW_CACHE = /tmp/nhanafi/Homebrew/Caches
+# environment
+SHLVL = 3
+# makefile (from `Makefile', line 28)
+CC = cc -Wall -Wextra -Werror -fsanitize=address -g
+# makefile (from `Makefile', line 37)
+ODIR = obj
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = nhanafi
+# makefile
+.DEFAULT_GOAL := all
+# default
+MAKECMDGOALS := all
+# environment
+TERM_SESSION_ID = w0t0p0:3C5176FE-F0E9-4024-BEDD-024356ED1A7E
+# makefile (from `Makefile', line 30)
+NAME = miniRT
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# makefile (from `Makefile', line 33)
+INC = include
+# environment
+TERM_PROGRAM = iTerm.app
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000ccz400337s/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/nhanafi/Library/Application Support/Code/1.75.0-main.sock
+# environment
+MallocNanoZone = 0
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+TERM_PROGRAM_VERSION = 3.4.13
+# makefile (from `Makefile', line 24)
+MAIN = main $(FILES)
+# environment
+XPC_SERVICE_NAME = 0
+# environment
+LC_TERMINAL_VERSION = 3.4.13
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from `Makefile', line 41)
+OBJ_B = $(addprefix $(ODIR)/, $(BONUS:=.o))
+# automatic
++F = $(notdir $+)
+# environment
+ITERM_SESSION_ID = w0t0p0:3C5176FE-F0E9-4024-BEDD-024356ED1A7E
+# environment
+COLORFGBG = 7;0
+# environment
+__CF_USER_TEXT_ENCODING = 0x18CF9:0:0
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# environment
+HOMEBREW_NO_AUTO_UPDATE = 1
+# automatic
+<F = $(notdir $<)
+# environment
+ITERM_PROFILE = Default
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# makefile (from `Makefile', line 35)
+HEADER = include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+# environment
+SECURITYSESSIONID = 186a8
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# default
+.INCLUDE_DIRS = /usr/local/include
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_PID = 1905
+# makefile (from `Makefile', line 14)
+FILES = mlx_events threads add_front utils/ft_atoi utils/ft_isalnum utils/ft_putstr_fd utils/ft_strdup utils/ft_strstr utils/instr utils/ft_calloc utils/ft_itoa utils/ft_memset utils/ft_split utils/ft_strcmp utils/ft_strlen utils/ft_substr utils/end_with utils/ft_strtrim utils/ft_atof utils/ft_strrchr utils/ft_atoc utils/ft_count utils/ft_lstsize utils/ft_atocolor utils/ft_fswap utils/error get_next_line/get_next_line get_next_line/get_next_line_utils pars/ambient pars/camera pars/cylindre pars/light pars/pars pars/plane pars/sphere pars/get_v_cam pars/get_img pars/cube operation/equal operation/vector operation/vector_operation operation/sd_equation operation/creat_referance intersection/sphere intersection/plane intersection/cylindre intersection/get_pixel intersection/get_pixel2 intersection/get_pixel3 intersection/circle intersection/cube
+# variable set hash-table stats:
+# Load=89/1024=9%, Rehash=0, Collisions=6/127=5%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# src/intersection (device 16777223, inode 12909156931): 10 files, no impossibilities so far.
+# include (device 16777223, inode 12909156812): 6 files, no impossibilities so far.
+# . (device 16777223, inode 12909156268): 15 files, no impossibilities.
+# src/utils (device 16777223, inode 12909156962): 25 files, no impossibilities so far.
+# src/get_next_line (device 16777223, inode 12909156928): 4 files, no impossibilities so far.
+# src (device 16777223, inode 12909156818): 12 files, no impossibilities so far.
+# src/operation (device 16777223, inode 12909156943): 8 files, no impossibilities so far.
+# src/pars (device 16777223, inode 12909156950): 12 files, no impossibilities so far.
+
+# 92 files, no impossibilities in 8 directories.
+
+# Implicit Rules
+
+obj/%.o: src/%.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+obj/utils/ft_calloc.o: src/utils/ft_calloc.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_calloc'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/add_front.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/ft_substr.o: src/utils/ft_substr.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_substr'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/pars/plane.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+ 
+miniRT_bonus: obj/main_bonus.o obj/mlx_events.o obj/threads.o obj/add_front.o obj/utils/ft_atoi.o obj/utils/ft_isalnum.o obj/utils/ft_putstr_fd.o obj/utils/ft_strdup.o obj/utils/ft_strstr.o obj/utils/instr.o obj/utils/ft_calloc.o obj/utils/ft_itoa.o obj/utils/ft_memset.o obj/utils/ft_split.o obj/utils/ft_strcmp.o obj/utils/ft_strlen.o obj/utils/ft_substr.o obj/utils/end_with.o obj/utils/ft_strtrim.o obj/utils/ft_atof.o obj/utils/ft_strrchr.o obj/utils/ft_atoc.o obj/utils/ft_count.o obj/utils/ft_lstsize.o obj/utils/ft_atocolor.o obj/utils/ft_fswap.o obj/utils/error.o obj/get_next_line/get_next_line.o obj/get_next_line/get_next_line_utils.o obj/pars/ambient.o obj/pars/camera.o obj/pars/cylindre.o obj/pars/light.o obj/pars/pars.o obj/pars/plane.o obj/pars/sphere.o obj/pars/get_v_cam.o obj/pars/get_img.o obj/pars/cube.o obj/operation/equal.o obj/operation/vector.o obj/operation/vector_operation.o obj/operation/sd_equation.o obj/operation/creat_referance.o obj/intersection/sphere.o obj/intersection/plane.o obj/intersection/cylindre.o obj/intersection/get_pixel.o obj/intersection/get_pixel2.o obj/intersection/get_pixel3.o obj/intersection/circle.o obj/intersection/cube.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 52):
+	$(CC) $(OBJ_B) -o $(NAME_BONUS)  -lmlx -framework OpenGL -framework AppKit
+	
+
+# Not a target:
+src/utils/ft_atoc.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/intersection/get_pixel2.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-10 00:27:58
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/intersection/cube.o: src/intersection/cube.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `intersection/cube'
+#  Last modified 2023-02-14 18:48:31
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/utils/end_with.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/pars/cube.o: src/pars/cube.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pars/cube'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/ft_lstsize.o: src/utils/ft_lstsize.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_lstsize'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/utils/ft_strdup.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+all: miniRT
+#  Command-line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/utils/ft_atof.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/pars/get_img.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-14 18:57:19
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/mlx_events.o: src/mlx_events.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `mlx_events'
+#  Last modified 2023-02-12 18:19:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/intersection/cylindre.o: src/intersection/cylindre.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `intersection/cylindre'
+#  Last modified 2023-02-12 18:19:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/operation/sd_equation.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/ft_count.o: src/utils/ft_count.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_count'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/get_next_line/get_next_line.o: src/get_next_line/get_next_line.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `get_next_line/get_next_line'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/ft_isalnum.o: src/utils/ft_isalnum.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_isalnum'
+#  Last modified 2023-02-12 18:19:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/ft_strcmp.o: src/utils/ft_strcmp.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_strcmp'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/pars/sphere.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/intersection/get_pixel3.o: src/intersection/get_pixel3.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `intersection/get_pixel3'
+#  Last modified 2023-02-12 18:19:43
+#  File has been updated.
+ 
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/ft_atocolor.o: src/utils/ft_atocolor.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_atocolor'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/get_next_line/get_next_line.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/ft_strdup.o: src/utils/ft_strdup.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_strdup'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/main.o: src/main.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `main'
+#  Last modified 2023-02-12 18:19:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/utils/ft_calloc.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+miniRT: obj/main.o obj/mlx_events.o obj/threads.o obj/add_front.o obj/utils/ft_atoi.o obj/utils/ft_isalnum.o obj/utils/ft_putstr_fd.o obj/utils/ft_strdup.o obj/utils/ft_strstr.o obj/utils/instr.o obj/utils/ft_calloc.o obj/utils/ft_itoa.o obj/utils/ft_memset.o obj/utils/ft_split.o obj/utils/ft_strcmp.o obj/utils/ft_strlen.o obj/utils/ft_substr.o obj/utils/end_with.o obj/utils/ft_strtrim.o obj/utils/ft_atof.o obj/utils/ft_strrchr.o obj/utils/ft_atoc.o obj/utils/ft_count.o obj/utils/ft_lstsize.o obj/utils/ft_atocolor.o obj/utils/ft_fswap.o obj/utils/error.o obj/get_next_line/get_next_line.o obj/get_next_line/get_next_line_utils.o obj/pars/ambient.o obj/pars/camera.o obj/pars/cylindre.o obj/pars/light.o obj/pars/pars.o obj/pars/plane.o obj/pars/sphere.o obj/pars/get_v_cam.o obj/pars/get_img.o obj/pars/cube.o obj/operation/equal.o obj/operation/vector.o obj/operation/vector_operation.o obj/operation/sd_equation.o obj/operation/creat_referance.o obj/intersection/sphere.o obj/intersection/plane.o obj/intersection/cylindre.o obj/intersection/get_pixel.o obj/intersection/get_pixel2.o obj/intersection/get_pixel3.o obj/intersection/circle.o obj/intersection/cube.o
+#  Implicit rule search has not been done.
+#  Last modified 2023-02-14 19:07:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 46):
+	$(CC) $(OBJ) -o $(NAME)  -lmlx -framework OpenGL -framework AppKit
+	
+
+# Not a target:
+src/utils/ft_substr.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/intersection/sphere.o: src/intersection/sphere.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `intersection/sphere'
+#  Last modified 2023-02-14 19:07:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/instr.o: src/utils/instr.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/instr'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/intersection/plane.o: src/intersection/plane.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `intersection/plane'
+#  Last modified 2023-02-12 18:19:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/pars/cube.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/operation/creat_referance.o: src/operation/creat_referance.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `operation/creat_referance'
+#  Last modified 2023-02-12 18:19:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/ft_putstr_fd.o: src/utils/ft_putstr_fd.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_putstr_fd'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/utils/ft_lstsize.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+include/structs.h:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-10 00:58:50
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/ft_strstr.o: src/utils/ft_strstr.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_strstr'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/intersection/get_pixel.o: src/intersection/get_pixel.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `intersection/get_pixel'
+#  Last modified 2023-02-12 18:19:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+ 
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/mlx_events.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/intersection/cylindre.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/utils/ft_count.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/ft_atoi.o: src/utils/ft_atoi.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_atoi'
+#  Last modified 2023-02-12 18:19:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/intersection/circle.o: src/intersection/circle.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `intersection/circle'
+#  Last modified 2023-02-12 18:19:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/operation/vector_operation.o: src/operation/vector_operation.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `operation/vector_operation'
+#  Last modified 2023-02-12 18:19:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/error.o: src/utils/error.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/error'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/ft_strtrim.o: src/utils/ft_strtrim.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_strtrim'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/utils/ft_isalnum.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/utils/ft_strcmp.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+include/get_next_line.h:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/intersection/get_pixel3.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+bonus: miniRT_bonus
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/utils/ft_atocolor.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+fclean: clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 61):
+	rm -rf $(NAME) $(NAME_BONUS)
+	
+
+# Not a target:
+include/minirt.h:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/operation/equal.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:40:51
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/get_next_line/get_next_line_utils.o: src/get_next_line/get_next_line_utils.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `get_next_line/get_next_line_utils'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/intersection/sphere.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-14 19:07:39
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/utils/instr.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/intersection/plane.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/intersection/cube.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-14 18:48:29
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/operation/creat_referance.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/ft_itoa.o: src/utils/ft_itoa.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_itoa'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/pars/light.o: src/pars/light.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pars/light'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+ 
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/ft_strlen.o: src/utils/ft_strlen.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_strlen'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/utils/ft_strstr.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/pars/pars.o: src/pars/pars.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pars/pars'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/pars/cylindre.o: src/pars/cylindre.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pars/cylindre'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/intersection/get_pixel.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/pars/get_v_cam.o: src/pars/get_v_cam.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pars/get_v_cam'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/ft_memset.o: src/utils/ft_memset.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_memset'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/ft_fswap.o: src/utils/ft_fswap.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_fswap'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/pars/camera.o: src/pars/camera.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pars/camera'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+re: fclean all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/utils/ft_atoi.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/operation/vector_operation.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/operation/vector.o: src/operation/vector.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `operation/vector'
+#  Last modified 2023-02-12 18:19:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/utils/error.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 58):
+	rm -rf $(ODIR)
+	
+
+# Not a target:
+src/utils/ft_strtrim.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/ft_strrchr.o: src/utils/ft_strrchr.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_strrchr'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/utils/ft_split.o: src/utils/ft_split.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_split'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/pars/ambient.o: src/pars/ambient.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pars/ambient'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/threads.o: src/threads.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `threads'
+#  Last modified 2023-02-12 18:19:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/pars/sphere.o: src/pars/sphere.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pars/sphere'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+ 
+obj/add_front.o: src/add_front.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `add_front'
+#  Last modified 2023-02-12 18:19:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/pars/plane.o: src/pars/plane.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pars/plane'
+#  Last modified 2023-02-12 18:19:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/get_next_line/get_next_line_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/ft_atoc.o: src/utils/ft_atoc.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_atoc'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/intersection/get_pixel2.o: src/intersection/get_pixel2.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `intersection/get_pixel2'
+#  Last modified 2023-02-12 18:19:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/utils/ft_itoa.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/pars/light.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/utils/ft_strlen.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/pars/ambient.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/ft_atof.o: src/utils/ft_atof.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_atof'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/pars/pars.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/pars/cylindre.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/pars/get_img.o: src/pars/get_img.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pars/get_img'
+#  Last modified 2023-02-14 18:57:39
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/pars/get_v_cam.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/end_with.o: src/utils/end_with.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/end_with'
+#  Last modified 2023-02-12 18:19:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+obj/operation/sd_equation.o: src/operation/sd_equation.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `operation/sd_equation'
+#  Last modified 2023-02-12 18:19:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/utils/ft_memset.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/utils/ft_fswap.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/pars/camera.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/intersection/circle.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+include/utils.h:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/operation/vector.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/utils/ft_strrchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/utils/ft_split.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/utils/ft_putstr_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-09 18:04:13
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+obj/main_bonus.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/operation/equal.o: src/operation/equal.c include/minirt.h include/utils.h include/get_next_line.h include/structs.h
+ 
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `operation/equal'
+#  Last modified 2023-02-12 18:19:43
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 55):
+	mkdir -p $(@D)
+	$(CC) -I$(INC) -c $< -o $@
+	
+
+# Not a target:
+src/threads.c:
+#  Implicit rule search has been done.
+#  Last modified 2023-02-10 00:29:20
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# files hash-table stats:
+# Load=119/1024=12%, Rehash=0, Collisions=45/813=6%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Wed Feb 15 20:03:04 2023
+
+ 
