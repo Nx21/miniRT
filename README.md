@@ -1,7 +1,7 @@
 # 42 miniRt Project
 Welcome to the 42 minirt project! This project is a simple raytracer that is capable of rendering basic geometric shapes in a 3D space. The project is written in C and is intended for educational purposes.
 
-![Screenshot](img/sun.png)
+![Screenshot](img/earth.png)
 
 # Requirements
 - A C compiler (such as GCC)
@@ -53,4 +53,4 @@ The number of objects and lights that can be rendered is limited
 This project is intended as an educational tool to help understand the basic concepts of a raytracer. It is not intended for production use.
 If you have any questions or encounter any issues while using this project, please contact us.
 
-![Screenshot](img/M&M.png)
+![Screenshot](img/sun.png)
