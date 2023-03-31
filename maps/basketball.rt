@@ -5,7 +5,7 @@ C 50,0,0 -1,0,0 60
 L 100.0,100,0 0.9 255,255,255
 
 
-sp 10,5,0 10 tx:texture/earth_daymap.xpm:texture/earth_daymap.xpm
+sp 0,5,0 10 tx:texture/earth_daymap.xpm:texture/earth_daymap.xpm
 
 
-sp -50,-20,0 3 tx:texture/moon.xpm:texture/moon.xpm
+sp -100,-40,0 3 tx:texture/moon.xpm:texture/moon.xpm
