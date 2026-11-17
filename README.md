@@ -1,56 +1,79 @@
-# 42 miniRt Project
-Welcome to the 42 minirt project! This project is a simple raytracer that is capable of rendering basic geometric shapes in a 3D space. The project is written in C and is intended for educational purposes.
+# miniRT
 
-![Screenshot](img/morocco.png)
+A ray tracer written from scratch in C for the 1337 (42 Network) curriculum, built with my teammate orekabe. It parses a `.rt` scene file, casts one ray per pixel through a 720x720 window and shades every hit with ambient, diffuse and specular lighting, hard shadows, checkerboards, textures and bump mapping.
 
-# Requirements
-- A C compiler (such as GCC)
-- The 42mlx library
-- The Makefile
+![Morocco scene](img/morocco.png)
 
-# Compiling and Running
+## Features
 
-To compile the project, navigate to the project directory in your terminal and run the following command:
+- **Shapes:** spheres, infinite planes, capped cylinders and cubes. Cylinder caps are discs and cubes are built from six squares, so every shape is solved analytically (ray/quadric or ray/plane equations).
+- **Lighting:** Phong-style model with an ambient term, Lambert diffuse and specular highlights.
+- **Shadows:** a shadow ray is cast toward each light, so objects block light for each other.
+- **Multiple coloured lights:** any number of point lights, each with its own brightness and colour.
+- **Checkerboard patterns** on every shape, using two colours.
+- **Texture mapping** from XPM images (spheres, planes, cylinders, cubes), used for the billiard and basketball scenes.
+- **Bump mapping:** a procedural normal perturbation that gives textured surfaces a tiled relief. The tile count is set per object in the scene file.
+- **Multithreaded rendering** in the bonus build: the image is split into six bands of rows, each rendered by its own pthread.
+
+![Room scene](img/room404.png)
+
+## Build and run
+
+The project uses the MiniLibX graphics library and links against the macOS OpenGL and AppKit frameworks, so it builds on macOS.
+
 ```bash
-make
+make            # builds ./miniRT
+make bonus      # builds ./miniRT_bonus (multithreaded renderer)
+./miniRT maps/8pool.rt
 ```
-This will create an executable file called "minirt". To run the program, use the following command:
-```bash
-./minirt scene_file
-```
-Where scene_file is the path to a scene file that describes the objects, lights, and camera for the scene you want to render. An example scene file is provided in the "scenes" directory.
 
-![Screenshot](img/room404.png)
+The program takes exactly one argument, a file ending in `.rt`. Press `Esc` or close the window to quit. Ready-made scenes are in the [`maps`](maps) folder and textures in [`texture`](texture).
 
-# Scene File Format
-The scene file is a simple text file that describes the objects, lights, and camera for the scene you want to render.
-Each object, light, and camera is defined by a single line in the file, with the following format:
+## Scene file format
+
+One element per line. Empty lines and lines starting with `#` are ignored. Vectors and colours are comma-separated (`x,y,z` and `R,G,B` in 0-255).
+
+| Element | Syntax | Notes |
+|---|---|---|
+| Ambient light | `A ratio R,G,B` | ratio in [0,1], declared once |
+| Camera | `C x,y,z dx,dy,dz fov` | direction components in [-1,1], fov in [0,180], declared once |
+| Light | `L x,y,z brightness R,G,B` | brightness in [0,1], several lights allowed |
+| Sphere | `sp x,y,z radius SURFACE` | |
+| Plane | `pl x,y,z nx,ny,nz SURFACE` | point on the plane and its normal |
+| Cylinder | `cy x,y,z ax,ay,az radius height SURFACE` | base centre, axis direction, closed with two caps |
+| Cube | `cb x,y,z dx,dy,dz half_size SURFACE` | centre, orientation, half the edge length |
+
+`SURFACE` can be:
+
+- `R,G,B` for a plain colour
+- `R,G,B R,G,B` for a checkerboard of two colours
+- `tx:path/to/image.xpm:N` for a texture, where `N` is the bump tile count (`0` turns bump mapping off)
+
+Example (`maps/basketball.rt`):
 
 ```txt
-[object/light/camera] [properties]
+A 0.1 255,255,255
+C 0,30,0 0,-1,0 60
+L 0.0,100,-100 0.9 255,255,255
+pl 0,0,5 0,1,0 39,107,0
+sp -1,5,-2 5 tx:texture/basketball.xpm:90
 ```
 
-For example, to define a blue sphere with a radius of 12.6 and a position of (0.0, 0.0, 20.6), you would use the following line :
+![8-ball pool scene](img/8pool.png)
 
-```txt
-sp 0.0,0.0,20.6 12.6 0,0,255
-```
+## How it works
 
-![Screenshot](img/8pool.png)
+1. **Parsing:** each line is validated (number of fields, value ranges) and turned into an object, light or camera setting. Invalid input stops the program with an error.
+2. **Camera rays:** a ray direction is precomputed for every pixel from the camera position, direction and field of view, and the scene is moved into camera space.
+3. **Intersection:** for each pixel the closest hit across all objects is kept. Spheres and cylinders solve a quadratic equation; planes, discs and squares solve a ray/plane equation and then check bounds.
+4. **Shading:** at the hit point the colour comes from the base colour, checkerboard or texture, the normal is optionally perturbed for bump mapping, and the light from each visible source (diffuse plus specular) is added to the ambient term.
 
-Please refer to the example scene file for more information on the specific properties and format for each object, light, and camera.
+![Colour test scene](img/color.png)
 
-# Limitations
+## Limitations
 
-This project is a basic implementation of a raytracer and as such has several limitations. Some of the most notable limitations include:
+- No reflections, refraction or anti-aliasing (one ray per pixel).
+- The window size is fixed at 720x720.
+- The build targets macOS only.
 
-Only basic geometric shapes are supported (spheres and planes)
-Shadows and reflections are not currently supported
-The number of objects and lights that can be rendered is limited
-![Screenshot](img/color.png)
-# Conclusion
-
-This project is intended as an educational tool to help understand the basic concepts of a raytracer. It is not intended for production use.
-If you have any questions or encounter any issues while using this project, please contact us.
-
-![Screenshot](img/basketball.png)
+![Basketball scene](img/basketball.png)
